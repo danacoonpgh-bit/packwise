@@ -14,6 +14,7 @@
 <meta property="og:image" content="assets/hero-ending.jpg">
 <meta property="og:url" content="">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1d1a'/%3E%3Crect x='12' y='22' width='40' height='8' rx='2' fill='%239aab45'/%3E%3Cpath d='M15 30h34l-3 22H18z' fill='%23eeede4'/%3E%3C/svg%3E">
+<link rel="preload" as="image" type="image/webp" href="assets/seq/f00.webp" media="(max-width: 720px), (orientation: portrait) and (pointer: coarse)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -127,6 +128,18 @@ a{color:inherit}
   .static-hero{display:flex;position:relative;min-height:100svh;align-items:flex-end;padding:120px 16px 48px;background:#141512 url('assets/hero-ending.jpg') center 40px/max(230vw,100%) auto no-repeat}
   .static-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,15,12,.45) 0%,rgba(14,15,12,0) 18%,rgba(14,15,12,0) 44%,rgba(14,15,12,.88) 64%,#141512 80%)}
 }
+/* phone scroll hero: image sequence on a canvas (JS adds html.seq-on) */
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:none}
+html.seq-on .hero{display:block;height:420vh;background:#141512}
+html.seq-on .static-hero{display:none}
+html.seq-on .stage{height:100vh;height:100svh}
+html.seq-on .stage canvas{display:block}
+html.seq-on .stage video,html.seq-on .stage .poster{display:none}
+.stage.seq-ready .ring{opacity:0}
+html.seq-on .stage.port .band{left:16px;right:16px;top:auto;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:none;max-width:none;text-align:left}
+html.seq-on .stage.port .band.right{text-align:right}
+html.seq-on .stage.port .band .sub{max-width:34ch}
+
 .static-hero .inner{position:relative;max-width:560px;text-shadow:var(--tshadow)}
 .static-hero h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(3rem,13vw,5.2rem);line-height:.92}
 .static-hero p{margin-top:14px;font-size:1.08rem;max-width:34ch}
@@ -305,7 +318,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 </nav>
 
 <header id="top">
-  <!-- Scroll hero (laptops and desktops) -->
+  <!-- Scroll hero (video on laptops and desktops, image frames on phones) -->
   <div class="hero" id="hero">
     <div class="stage" id="stage">
       <div class="poster" aria-hidden="true"></div>
@@ -340,7 +353,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     </div>
   </div>
 
-  <!-- Static hero (phones, portrait tablets, reduced motion) -->
+  <!-- Static hero (reduced motion, data saver, or if the phone frames can't load) -->
   <div class="static-hero">
     <div class="inner">
       <h1>Skip the cardboard. <span class="wise">Pack wiser.</span></h1>
@@ -653,7 +666,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     shown += (target - shown) * (1 - Math.pow(1 - k, dt / 16.667));
     const settled = Math.abs(target - shown) < 0.0005;
     if (settled) shown = target;
-    requestSeek(shown * (video.duration || 0));
+    if (seqOn) seqDraw(); else requestSeek(shown * (video.duration || 0));
     updateCaptions(shown);
     if (settled && loadK >= 1) { rafId = null; lastTick = 0; }
     else rafId = requestAnimationFrame(tick);
@@ -701,9 +714,119 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   }
   function failVideo() { stage.classList.add('video-failed'); ring.style.opacity = 0; }
 
+  /* ---------- phone scroll hero: image sequence on a canvas ----------
+     Phones can't scrub a video smoothly (iOS Safari lags on currentTime seeks),
+     so phones scrub through 73 pre-cut WebP frames instead, cross-fading
+     between neighbours so it stays smooth. */
+  const PHONE_GATES = GATES.slice(0, 4);
+  const SEQ_N = 73, seqUrl = i => `assets/seq/f${String(i).padStart(2, '0')}.webp`;
+  const SAVE_DATA = !!(navigator.connection && navigator.connection.saveData);
+  const frames = new Array(SEQ_N).fill(null);
+  let seqOn = false, seqInited = false, seqFailed = false;
+  let canvas = null, ctx = null, cw = 0, ch = 0, dpr = 1, port = true, drawnKey = '';
+
+  function seqLoad(i) {
+    return new Promise(res => {
+      const img = new Image();
+      img.decoding = 'async';
+      img.onload = () => {
+        const ready = img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+        ready.then(() => { frames[i] = img; res(true); });
+      };
+      img.onerror = () => res(false);
+      img.src = seqUrl(i);
+    });
+  }
+  function seqOrder() {
+    const seen = new Set([0, SEQ_N - 1]), out = [0, SEQ_N - 1];
+    [24, 12, 6, 3, 1].forEach(step => { for (let i = 0; i < SEQ_N; i += step) if (!seen.has(i)) { seen.add(i); out.push(i); } });
+    return out;
+  }
+  async function seqInit() {
+    if (seqInited) return; seqInited = true;
+    loadStart = performance.now();
+    canvas = document.createElement('canvas');
+    canvas.setAttribute('aria-hidden', 'true');
+    stage.insertBefore(canvas, stage.querySelector('.scrim'));
+    ctx = canvas.getContext('2d');
+    seqResize();
+    const order = seqOrder();
+    let next = 1, done = 1;
+    if (!(await seqLoad(order[0]))) { seqFail(); return; }
+    seqDraw(true);
+    const worker = async () => {
+      while (next < order.length) {
+        await seqLoad(order[next++]);
+        done++;
+        ring.style.setProperty('--ld', Math.round(126 * (1 - done / SEQ_N)));
+        seqDraw(true);
+      }
+    };
+    await Promise.all([worker(), worker(), worker(), worker()]);
+    stage.classList.add('seq-ready');
+  }
+  function seqFail() { seqFailed = true; applyHeroMode(); }
+  function seqResize() {
+    if (!canvas || !seqOn) return;
+    dpr = Math.min(2, devicePixelRatio || 1);
+    const w = stage.clientWidth, h = stage.clientHeight;
+    if (!w || !h || (w === cw && h === ch && canvas.width === Math.round(w * dpr))) return;
+    cw = w; ch = h;
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    port = h >= w;
+    stage.classList.toggle('port', port);
+    seqDraw(true);
+  }
+  function nearestFrame(i, dir) {
+    for (let j = i; j >= 0 && j < SEQ_N; j += dir) if (frames[j]) return j;
+    return -1;
+  }
+  function vfade(x, y, w, h, a0, a1) {
+    const g = ctx.createLinearGradient(0, y, 0, y + h);
+    g.addColorStop(0, `rgba(20,21,18,${a0})`); g.addColorStop(1, `rgba(20,21,18,${a1})`);
+    ctx.fillStyle = g; ctx.fillRect(x, y, w, h);
+  }
+  function hfade(x, y, w, h, a0, a1) {
+    const g = ctx.createLinearGradient(x, 0, x + w, 0);
+    g.addColorStop(0, `rgba(20,21,18,${a0})`); g.addColorStop(1, `rgba(20,21,18,${a1})`);
+    ctx.fillStyle = g; ctx.fillRect(x, y, w, h);
+  }
+  function seqDraw(force) {
+    if (!ctx || !frames[0] || !canvas.width) return;
+    const f = clamp(shown, 0, 1) * (SEQ_N - 1);
+    let a = nearestFrame(Math.floor(f), -1), b = nearestFrame(Math.ceil(f), 1);
+    if (a < 0) a = b; if (b < 0) b = a;
+    const t = b > a ? (f - a) / (b - a) : 0;
+    const key = `${a}|${b}|${Math.round(t * 40)}|${canvas.width}x${canvas.height}`;
+    if (!force && key === drawnKey) return;
+    drawnKey = key;
+    const W = canvas.width, H = canvas.height;
+    let s, x, y;
+    if (port) { s = Math.min(W / 0.86, H * 0.62); x = (W - s) / 2; y = Math.min(60 * dpr, H - s); }
+    else { s = Math.min(H, W * 0.62); x = (W - s) / 2; y = (H - s) / 2; }
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = '#141512'; ctx.fillRect(0, 0, W, H);
+    ctx.drawImage(frames[a], x, y, s, s);
+    if (b !== a && t > 0.02) { ctx.globalAlpha = t; ctx.drawImage(frames[b], x, y, s, s); ctx.globalAlpha = 1; }
+    vfade(x - 1, y - 1, s + 2, s * 0.16, 0.6, 0);
+    vfade(x - 1, y + s * 0.6, s + 2, s * 0.4 + 2, 0, 1);
+    if (x > 0) { hfade(x - 1, y - 1, s * 0.16, s + 2, 1, 0); hfade(x + s * 0.84 + 1, y - 1, s * 0.16, s + 2, 0, 1); }
+  }
+  function enableSeq() {
+    if (seqOn) return; seqOn = true;
+    document.documentElement.classList.add('seq-on');
+    addEventListener('resize', seqResize, { passive: true });
+    seqResize();
+  }
+  function disableSeq() {
+    if (!seqOn) return; seqOn = false;
+    document.documentElement.classList.remove('seq-on');
+    removeEventListener('resize', seqResize);
+  }
+
   function enableScrub() {
     if (scrubOn) return; scrubOn = true;
-    initHeroOnce();
+    if (seqOn) seqInit(); else initHeroOnce();
     addEventListener('scroll', onScroll, { passive: true });
     addEventListener('resize', onScroll, { passive: true });
     bands.forEach(B => { B.op = -1; B.k = -1; B.live = null; });
@@ -717,7 +840,12 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     removeEventListener('scroll', onScroll); removeEventListener('resize', onScroll);
     if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
   }
-  function applyHeroMode() { if (GATES.some(q => matchMedia(q).matches)) disableScrub(); else enableScrub(); }
+  function applyHeroMode() {
+    const phone = PHONE_GATES.some(q => matchMedia(q).matches);
+    if (RM.matches || (phone && (SAVE_DATA || seqFailed))) { disableScrub(); disableSeq(); return; }
+    if (phone !== seqOn) { disableScrub(); if (phone) enableSeq(); else disableSeq(); }
+    enableScrub();
+  }
   const MQLS = GATES.map(q => matchMedia(q));
   MQLS.forEach(m => m.addEventListener('change', applyHeroMode));
 
@@ -748,7 +876,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   opts.forEach(o => o.addEventListener('click', () => pick(o)));
 
   function pinToFinalStates() {
-    disableScrub();
+    disableScrub(); disableSeq();
     $$('.io').forEach(el => el.classList.add('in', 'done'));
     stagger.forEach(clearTimeout);
     const pressed = opts.find(o => o.getAttribute('aria-pressed') === 'true');
