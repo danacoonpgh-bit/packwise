@@ -13,8 +13,8 @@
 <meta property="og:description" content="Clean, reusable moving bins delivered to your door in Greater Pittsburgh. From $79.">
 <meta property="og:image" content="assets/hero-ending.jpg">
 <meta property="og:url" content="">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "LocalBusiness", "name": "Packwise", "slogan": "Skip the Cardboard. Pack Wiser.", "description": "Clean, sanitized, reusable moving bins delivered to your door in Greater Pittsburgh and picked up when you're done.", "telephone": "+1-412-444-8833", "email": "miranda@packwisebins.com", "areaServed": "Greater Pittsburgh", "priceRange": "$79-$259", "sameAs": ["https://www.instagram.com/packwisebins/"], "makesOffer": [{"@type": "Offer", "name": "10 moving bins, delivery and pickup included", "price": "79", "priceCurrency": "USD"}, {"@type": "Offer", "name": "20 moving bins, delivery and pickup included", "price": "119", "priceCurrency": "USD"}, {"@type": "Offer", "name": "40 moving bins, delivery and pickup included", "price": "199", "priceCurrency": "USD"}, {"@type": "Offer", "name": "60 moving bins, delivery and pickup included", "price": "259", "priceCurrency": "USD"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are the bins actually clean?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every bin is cleaned and sanitized after every rental, so nothing from the last move comes along on yours."}}, {"@type": "Question", "name": "How long can I keep them?", "acceptedAnswer": {"@type": "Answer", "text": "Up to 3 weeks. If your closing date moves or you need more time, ask. Packwise can help there too."}}, {"@type": "Question", "name": "Do delivery and pickup cost extra?", "acceptedAnswer": {"@type": "Answer", "text": "No. Delivery and pickup are included in every plan."}}, {"@type": "Question", "name": "How many bins do I need?", "acceptedAnswer": {"@type": "Answer", "text": "10 bins for a studio, dorm or remodeling project. 20 for 1 to 2 bedrooms. 40 for 2 to 3 bedrooms. 60 for 4+ bedrooms, bigger moves and commercial moves. Short a few? Extra bins are one ask away."}}, {"@type": "Question", "name": "Can I get packing paper, bubble wrap or tape?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Paper, bubble wrap, tape and mattress covers are available as add-ons. Mention what you need when you request your bins."}}, {"@type": "Question", "name": "Where do you deliver?", "acceptedAnswer": {"@type": "Answer", "text": "Packwise serves Greater Pittsburgh. Not sure if your address is covered? Call 412-444-8833 and ask."}}, {"@type": "Question", "name": "Will they hold up in the rain?", "acceptedAnswer": {"@type": "Answer", "text": "They're sturdy, stackable and water-resistant. A soggy driveway won't turn them to mush the way it does cardboard."}}]}]}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1d1a'/%3E%3Crect x='12' y='22' width='40' height='8' rx='2' fill='%239aab45'/%3E%3Cpath d='M15 30h34l-3 22H18z' fill='%23eeede4'/%3E%3C/svg%3E">
+<link rel="preload" as="image" type="image/webp" href="assets/seq/f00.webp" media="(max-width: 720px), (orientation: portrait) and (pointer: coarse)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -125,9 +125,21 @@ a{color:inherit}
 .static-hero{display:none}
 @media (max-width: 720px),(orientation: portrait) and (max-width: 1024px),(orientation: portrait) and (pointer: coarse),(orientation: landscape) and (pointer: coarse) and (max-height: 560px),(prefers-reduced-motion: reduce){
   .hero{display:none}
-  .static-hero{display:flex;position:relative;min-height:100svh;align-items:flex-end;padding:120px 16px 48px;background:#141512 url('assets/hero-ending.jpg') center 40px/max(230vw,100%) auto no-repeat;background-image:image-set(url('assets/hero-ending-1920.webp') type('image/webp'),url('assets/hero-ending.jpg') type('image/jpeg'))}
+  .static-hero{display:flex;position:relative;min-height:100svh;align-items:flex-end;padding:120px 16px 48px;background:#141512 url('assets/hero-ending.jpg') center 40px/max(230vw,100%) auto no-repeat}
   .static-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,15,12,.45) 0%,rgba(14,15,12,0) 18%,rgba(14,15,12,0) 44%,rgba(14,15,12,.88) 64%,#141512 80%)}
 }
+/* phone scroll hero: image sequence on a canvas (JS adds html.seq-on) */
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:none}
+html.seq-on .hero{display:block;height:420vh;background:#141512}
+html.seq-on .static-hero{display:none}
+html.seq-on .stage{height:100vh;height:100svh}
+html.seq-on .stage canvas{display:block}
+html.seq-on .stage video,html.seq-on .stage .poster{display:none}
+.stage.seq-ready .ring{opacity:0}
+html.seq-on .stage.port .band{left:16px;right:16px;top:auto;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:none;max-width:none;text-align:left}
+html.seq-on .stage.port .band.right{text-align:right}
+html.seq-on .stage.port .band .sub{max-width:34ch}
+
 .static-hero .inner{position:relative;max-width:560px;text-shadow:var(--tshadow)}
 .static-hero h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(3rem,13vw,5.2rem);line-height:.92}
 .static-hero p{margin-top:14px;font-size:1.08rem;max-width:34ch}
@@ -162,9 +174,6 @@ main section{position:relative;padding:clamp(88px,12vw,150px) clamp(16px,5vw,64p
 /* intro */
 .intro .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,80px);align-items:center}
 .intro figure{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
-.intro figure picture,.step picture{display:block}
-.step picture{overflow:hidden}
-.remodel picture{display:block;height:100%}
 .intro figure img{aspect-ratio:16/11;object-fit:cover;width:100%}
 .intro figcaption{position:absolute;left:14px;bottom:14px;background:rgba(14,15,12,.7);backdrop-filter:blur(8px);padding:6px 12px;border-radius:999px;color:var(--text-secondary)}
 @media (max-width:860px){.intro .grid{grid-template-columns:1fr}}
@@ -220,11 +229,7 @@ main section{position:relative;padding:clamp(88px,12vw,150px) clamp(16px,5vw,64p
 .tier .count{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.4rem;color:var(--text-secondary)}
 .tier .price{font-family:var(--display);font-weight:800;font-size:4.2rem;line-height:1;margin:6px 0 12px}
 .tier .price sup{font-size:.45em;vertical-align:.95em;margin-right:2px}
-.tier{display:flex;flex-direction:column}
-.tier p{color:var(--text-secondary);font-size:.98rem;line-height:1.45;flex:1}
-.tier .btn{margin-top:20px;font-size:.95rem;padding:10px 16px}
-.tier.pick .btn{background:var(--accent);border-color:var(--accent);color:#161812}
-.result a{color:var(--accent);font-weight:600;white-space:nowrap}
+.tier p{color:var(--text-secondary);font-size:.98rem;line-height:1.45}
 .tier .tag{position:absolute;top:-12px;left:22px;background:var(--accent);color:#161812;padding:3px 10px;border-radius:999px;opacity:0;transform:translateY(4px);transition:opacity .4s,transform .4s var(--ease-out)}
 .tier.pick .tag{opacity:1;transform:none}
 .inc{margin-top:22px;color:var(--text-secondary);font-size:.98rem}
@@ -275,8 +280,6 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
 textarea{min-height:96px;resize:vertical}
 form .note{font-size:.9rem;color:var(--text-secondary)}
 .sent{display:none;grid-column:1/-1;background:var(--panel-2);border:1px solid var(--accent);border-radius:14px;padding:16px 18px}
-.sent .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.sent .btn{font-size:.95rem;padding:10px 18px}
 form.done .sent{display:block}
 @media (max-width:860px){.request .grid{grid-template-columns:1fr}}
 @media (max-width:520px){form{grid-template-columns:1fr}}
@@ -315,9 +318,8 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 </nav>
 
 <header id="top">
-  <!-- Scroll hero (laptops and desktops) -->
+  <!-- Scroll hero (video on laptops and desktops, image frames on phones) -->
   <div class="hero" id="hero">
-    <h1 class="vh">Skip the cardboard. Pack wiser. Clean moving bins delivered in Greater Pittsburgh.</h1>
     <div class="stage" id="stage">
       <div class="poster" aria-hidden="true"></div>
       <video id="vid" preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
@@ -351,7 +353,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     </div>
   </div>
 
-  <!-- Static hero (phones, portrait tablets, reduced motion) -->
+  <!-- Static hero (reduced motion, data saver, or if the phone frames can't load) -->
   <div class="static-hero">
     <div class="inner">
       <h1>Skip the cardboard. <span class="wise">Pack wiser.</span></h1>
@@ -379,7 +381,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         </div>
       </div>
       <figure class="rv">
-        <picture><source type="image/webp" srcset="assets/hero-ending-960.webp 960w, assets/hero-ending-1920.webp 1920w" sizes="(max-width:860px) 100vw, 520px"><img src="assets/hero-ending.jpg" alt="A clean black Packwise bin with an olive lid sitting on a crushed, moldy cardboard box" loading="lazy" width="1920" height="1080"></picture>
+        <img src="assets/hero-ending.jpg" alt="A clean black Packwise bin with an olive lid sitting on a crushed, moldy cardboard box" loading="lazy" width="1920" height="1080">
         <figcaption class="mono">Case closed</figcaption>
       </figure>
     </div>
@@ -392,15 +394,15 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       <div class="track rv" aria-hidden="true"><i></i></div>
       <div class="steps">
         <article class="step rv">
-          <picture><source type="image/webp" srcset="assets/step-deliver-800.webp 800w, assets/step-deliver-1600.webp 1600w" sizes="(max-width:860px) 100vw, 380px"><img src="assets/step-deliver.jpg" alt="Stacked black moving bins with olive lids delivered to a front porch" loading="lazy" width="1600" height="1200"></picture>
+          <img src="assets/step-deliver.jpg" alt="Stacked black moving bins with olive lids delivered to a front porch" loading="lazy" width="1600" height="1200">
           <div class="body"><span class="num mono">01</span><h3>We deliver</h3><p>Clean Packwise bins arrive at your door, ready to pack.</p></div>
         </article>
         <article class="step rv">
-          <picture><source type="image/webp" srcset="assets/step-pack-800.webp 800w, assets/step-pack-1600.webp 1600w" sizes="(max-width:860px) 100vw, 380px"><img src="assets/step-pack.jpg" alt="Open moving bins being packed in a bright living room" loading="lazy" width="1600" height="1200"></picture>
+          <img src="assets/step-pack.jpg" alt="Open moving bins being packed in a bright living room" loading="lazy" width="1600" height="1200">
           <div class="body"><span class="num mono">02</span><h3>You pack &amp; move</h3><p>No box assembly. No tape. Snap the lid shut and stack them up.</p></div>
         </article>
         <article class="step rv">
-          <picture><source type="image/webp" srcset="assets/step-pickup-800.webp 800w, assets/step-pickup-1600.webp 1600w" sizes="(max-width:860px) 100vw, 380px"><img src="assets/step-pickup.jpg" alt="Empty moving bins stacked neatly by the door of a new home, ready for pickup" loading="lazy" width="1600" height="1200"></picture>
+          <img src="assets/step-pickup.jpg" alt="Empty moving bins stacked neatly by the door of a new home, ready for pickup" loading="lazy" width="1600" height="1200">
           <div class="body"><span class="num mono">03</span><h3>We pick up</h3><p>When you're finished moving, we come get the bins. Nothing to break down or haul to the curb.</p></div>
         </article>
       </div>
@@ -456,10 +458,10 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       </div>
 
       <div class="tiers">
-        <div class="tier rv" data-i="0"><span class="tag mono">Your fit</span><div class="count">10 bins</div><div class="price"><sup>$</sup>79</div><p>Perfect for studio apartments, dorms and remodeling projects.</p><a class="btn btn-ghost" href="#request" data-plan="0">Choose 10 bins</a></div>
-        <div class="tier rv" data-i="1"><span class="tag mono">Your fit</span><div class="count">20 bins</div><div class="price"><sup>$</sup>119</div><p>Great for 1 to 2 bedroom homes.</p><a class="btn btn-ghost" href="#request" data-plan="1">Choose 20 bins</a></div>
-        <div class="tier rv" data-i="2"><span class="tag mono">Your fit</span><div class="count">40 bins</div><div class="price"><sup>$</sup>199</div><p>Ideal for 2 to 3 bedroom homes.</p><a class="btn btn-ghost" href="#request" data-plan="2">Choose 40 bins</a></div>
-        <div class="tier rv" data-i="3"><span class="tag mono">Your fit</span><div class="count">60 bins</div><div class="price"><sup>$</sup>259</div><p>Best for 4+ bedroom homes, larger moves and commercial moves.</p><a class="btn btn-ghost" href="#request" data-plan="3">Choose 60 bins</a></div>
+        <div class="tier rv" data-i="0"><span class="tag mono">Your fit</span><div class="count">10 bins</div><div class="price"><sup>$</sup>79</div><p>Perfect for studio apartments, dorms and remodeling projects.</p></div>
+        <div class="tier rv" data-i="1"><span class="tag mono">Your fit</span><div class="count">20 bins</div><div class="price"><sup>$</sup>119</div><p>Great for 1 to 2 bedroom homes.</p></div>
+        <div class="tier rv" data-i="2"><span class="tag mono">Your fit</span><div class="count">40 bins</div><div class="price"><sup>$</sup>199</div><p>Ideal for 2 to 3 bedroom homes.</p></div>
+        <div class="tier rv" data-i="3"><span class="tag mono">Your fit</span><div class="count">60 bins</div><div class="price"><sup>$</sup>259</div><p>Best for 4+ bedroom homes, larger moves and commercial moves.</p></div>
       </div>
       <p class="inc rv">Every plan: delivery, pickup, and up to 3 weeks with the bins.</p>
     </div>
@@ -479,7 +481,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   <section class="remodel" aria-labelledby="rem-h">
     <div class="wrap io">
       <div class="grid rv">
-        <picture><source type="image/webp" srcset="assets/remodel-800.webp 800w, assets/remodel-1600.webp 1600w" sizes="(max-width:860px) 100vw, 590px"><img src="assets/remodel.jpg" alt="Packed moving bins stacked neatly in a room under renovation, protected from the dust" loading="lazy" width="1600" height="1200"></picture>
+        <img src="assets/remodel.jpg" alt="Packed moving bins stacked neatly in a room under renovation, protected from the dust" loading="lazy" width="1600" height="1200">
         <div class="copy">
           <span class="kicker mono">Not moving? Remodeling?</span>
           <h2 class="h2" id="rem-h">Keep it clean while the dust flies.</h2>
@@ -534,8 +536,8 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         <div class="full"><label for="f-zip">Delivery ZIP or town</label><input id="f-zip" name="zip" autocomplete="postal-code" placeholder="e.g. 15237 or Cranberry"></div>
         <div class="full"><label for="f-notes">Anything else? <span style="font-weight:400;color:var(--text-secondary)">(add-ons, extra bins, more time)</span></label><textarea id="f-notes" name="notes"></textarea></div>
         <div class="full"><button class="btn btn-primary" type="submit">Request my bins</button></div>
-        <p class="note full">Sending opens your email app with everything filled in, addressed to Miranda at Packwise. Hit send there and you're done. No email app? You can text the same request instead.</p>
-        <div class="sent" role="status"><p>Your email app should be open with your request ready. Send it, and Miranda will be in touch.</p><p style="margin-top:8px">Nothing opened? Send it another way, or call 412-444-8833.</p><div class="row"><a class="btn btn-primary" id="sms-link" href="sms:+14124448833">Text it instead</a><button class="btn btn-ghost" type="button" id="copy-req">Copy my request</button></div></div>
+        <p class="note full">Sending opens your email app with everything filled in, addressed to Miranda at Packwise. Hit send there and you're done.</p>
+        <p class="sent" role="status">Your email app should be open with your request ready. Send it, and Miranda will be in touch. Nothing opened? Call or text 412-444-8833.</p>
       </form>
     </div>
   </section>
@@ -651,7 +653,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       if (Math.abs(op - B.op) > 0.004) { B.op = op; B.el.style.opacity = op; }
       if (Math.abs(k - B.k) > 0.008 || (k === 1 && B.k !== 1) || (k === 0 && B.k !== 0)) { B.k = k; B.el.style.setProperty('--k', k.toFixed(3)); }
       const live = op > 0.5;
-      if (live !== B.live) { B.live = live; B.el.classList.toggle('live', live); B.el.inert = !live; }
+      if (live !== B.live) { B.live = live; B.el.classList.toggle('live', live); }
     });
     const showCue = p < 0.04;
     if (showCue !== cueShown) { cueShown = showCue; cue.style.opacity = showCue ? 1 : 0; }
@@ -664,7 +666,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     shown += (target - shown) * (1 - Math.pow(1 - k, dt / 16.667));
     const settled = Math.abs(target - shown) < 0.0005;
     if (settled) shown = target;
-    requestSeek(shown * (video.duration || 0));
+    if (seqOn) seqDraw(); else requestSeek(shown * (video.duration || 0));
     updateCaptions(shown);
     if (settled && loadK >= 1) { rafId = null; lastTick = 0; }
     else rafId = requestAnimationFrame(tick);
@@ -712,9 +714,119 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   }
   function failVideo() { stage.classList.add('video-failed'); ring.style.opacity = 0; }
 
+  /* ---------- phone scroll hero: image sequence on a canvas ----------
+     Phones can't scrub a video smoothly (iOS Safari lags on currentTime seeks),
+     so phones scrub through 73 pre-cut WebP frames instead, cross-fading
+     between neighbours so it stays smooth. */
+  const PHONE_GATES = GATES.slice(0, 4);
+  const SEQ_N = 73, seqUrl = i => `assets/seq/f${String(i).padStart(2, '0')}.webp`;
+  const SAVE_DATA = !!(navigator.connection && navigator.connection.saveData);
+  const frames = new Array(SEQ_N).fill(null);
+  let seqOn = false, seqInited = false, seqFailed = false;
+  let canvas = null, ctx = null, cw = 0, ch = 0, dpr = 1, port = true, drawnKey = '';
+
+  function seqLoad(i) {
+    return new Promise(res => {
+      const img = new Image();
+      img.decoding = 'async';
+      img.onload = () => {
+        const ready = img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+        ready.then(() => { frames[i] = img; res(true); });
+      };
+      img.onerror = () => res(false);
+      img.src = seqUrl(i);
+    });
+  }
+  function seqOrder() {
+    const seen = new Set([0, SEQ_N - 1]), out = [0, SEQ_N - 1];
+    [24, 12, 6, 3, 1].forEach(step => { for (let i = 0; i < SEQ_N; i += step) if (!seen.has(i)) { seen.add(i); out.push(i); } });
+    return out;
+  }
+  async function seqInit() {
+    if (seqInited) return; seqInited = true;
+    loadStart = performance.now();
+    canvas = document.createElement('canvas');
+    canvas.setAttribute('aria-hidden', 'true');
+    stage.insertBefore(canvas, stage.querySelector('.scrim'));
+    ctx = canvas.getContext('2d');
+    seqResize();
+    const order = seqOrder();
+    let next = 1, done = 1;
+    if (!(await seqLoad(order[0]))) { seqFail(); return; }
+    seqDraw(true);
+    const worker = async () => {
+      while (next < order.length) {
+        await seqLoad(order[next++]);
+        done++;
+        ring.style.setProperty('--ld', Math.round(126 * (1 - done / SEQ_N)));
+        seqDraw(true);
+      }
+    };
+    await Promise.all([worker(), worker(), worker(), worker()]);
+    stage.classList.add('seq-ready');
+  }
+  function seqFail() { seqFailed = true; applyHeroMode(); }
+  function seqResize() {
+    if (!canvas || !seqOn) return;
+    dpr = Math.min(2, devicePixelRatio || 1);
+    const w = stage.clientWidth, h = stage.clientHeight;
+    if (!w || !h || (w === cw && h === ch && canvas.width === Math.round(w * dpr))) return;
+    cw = w; ch = h;
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    port = h >= w;
+    stage.classList.toggle('port', port);
+    seqDraw(true);
+  }
+  function nearestFrame(i, dir) {
+    for (let j = i; j >= 0 && j < SEQ_N; j += dir) if (frames[j]) return j;
+    return -1;
+  }
+  function vfade(x, y, w, h, a0, a1) {
+    const g = ctx.createLinearGradient(0, y, 0, y + h);
+    g.addColorStop(0, `rgba(20,21,18,${a0})`); g.addColorStop(1, `rgba(20,21,18,${a1})`);
+    ctx.fillStyle = g; ctx.fillRect(x, y, w, h);
+  }
+  function hfade(x, y, w, h, a0, a1) {
+    const g = ctx.createLinearGradient(x, 0, x + w, 0);
+    g.addColorStop(0, `rgba(20,21,18,${a0})`); g.addColorStop(1, `rgba(20,21,18,${a1})`);
+    ctx.fillStyle = g; ctx.fillRect(x, y, w, h);
+  }
+  function seqDraw(force) {
+    if (!ctx || !frames[0] || !canvas.width) return;
+    const f = clamp(shown, 0, 1) * (SEQ_N - 1);
+    let a = nearestFrame(Math.floor(f), -1), b = nearestFrame(Math.ceil(f), 1);
+    if (a < 0) a = b; if (b < 0) b = a;
+    const t = b > a ? (f - a) / (b - a) : 0;
+    const key = `${a}|${b}|${Math.round(t * 40)}|${canvas.width}x${canvas.height}`;
+    if (!force && key === drawnKey) return;
+    drawnKey = key;
+    const W = canvas.width, H = canvas.height;
+    let s, x, y;
+    if (port) { s = Math.min(W / 0.86, H * 0.62); x = (W - s) / 2; y = Math.min(60 * dpr, H - s); }
+    else { s = Math.min(H, W * 0.62); x = (W - s) / 2; y = (H - s) / 2; }
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = '#141512'; ctx.fillRect(0, 0, W, H);
+    ctx.drawImage(frames[a], x, y, s, s);
+    if (b !== a && t > 0.02) { ctx.globalAlpha = t; ctx.drawImage(frames[b], x, y, s, s); ctx.globalAlpha = 1; }
+    vfade(x - 1, y - 1, s + 2, s * 0.16, 0.6, 0);
+    vfade(x - 1, y + s * 0.6, s + 2, s * 0.4 + 2, 0, 1);
+    if (x > 0) { hfade(x - 1, y - 1, s * 0.16, s + 2, 1, 0); hfade(x + s * 0.84 + 1, y - 1, s * 0.16, s + 2, 0, 1); }
+  }
+  function enableSeq() {
+    if (seqOn) return; seqOn = true;
+    document.documentElement.classList.add('seq-on');
+    addEventListener('resize', seqResize, { passive: true });
+    seqResize();
+  }
+  function disableSeq() {
+    if (!seqOn) return; seqOn = false;
+    document.documentElement.classList.remove('seq-on');
+    removeEventListener('resize', seqResize);
+  }
+
   function enableScrub() {
     if (scrubOn) return; scrubOn = true;
-    initHeroOnce();
+    if (seqOn) seqInit(); else initHeroOnce();
     addEventListener('scroll', onScroll, { passive: true });
     addEventListener('resize', onScroll, { passive: true });
     bands.forEach(B => { B.op = -1; B.k = -1; B.live = null; });
@@ -728,7 +840,12 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     removeEventListener('scroll', onScroll); removeEventListener('resize', onScroll);
     if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
   }
-  function applyHeroMode() { if (GATES.some(q => matchMedia(q).matches)) disableScrub(); else enableScrub(); }
+  function applyHeroMode() {
+    const phone = PHONE_GATES.some(q => matchMedia(q).matches);
+    if (RM.matches || (phone && (SAVE_DATA || seqFailed))) { disableScrub(); disableSeq(); return; }
+    if (phone !== seqOn) { disableScrub(); if (phone) enableSeq(); else disableSeq(); }
+    enableScrub();
+  }
   const MQLS = GATES.map(q => matchMedia(q));
   MQLS.forEach(m => m.addEventListener('change', applyHeroMode));
 
@@ -753,18 +870,13 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       if (!on) el.classList.remove('on');
     });
     tiers.forEach(el => el.classList.toggle('pick', +el.dataset.i === t));
-    result.innerHTML = COPY[t] + ' Delivery and pickup included. <a href="#request">Request these bins</a>';
+    result.innerHTML = COPY[t] + ' Delivery and pickup included.';
     plan.selectedIndex = t;
   }
   opts.forEach(o => o.addEventListener('click', () => pick(o)));
-  $$('.tier .btn').forEach(a => a.addEventListener('click', () => {
-    const t = +a.dataset.plan;
-    tiers.forEach(el => el.classList.toggle('pick', +el.dataset.i === t));
-    plan.selectedIndex = t;
-  }));
 
   function pinToFinalStates() {
-    disableScrub();
+    disableScrub(); disableSeq();
     $$('.io').forEach(el => el.classList.add('in', 'done'));
     stagger.forEach(clearTimeout);
     const pressed = opts.find(o => o.getAttribute('aria-pressed') === 'true');
@@ -776,36 +888,18 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   applyHeroMode();
 
   /* ---------- request form (mailto) ---------- */
-  const form = $('#reqform'), smsLink = $('#sms-link'), copyBtn = $('#copy-req');
-  const d = new Date(); form.date.min = new Date(d - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
-  let lastBody = '';
+  const form = $('#reqform');
   form.addEventListener('submit', e => {
     e.preventDefault();
     const name = form.name.value.trim(), phone = form.phone.value.trim();
     if (!name || !phone) { (name ? form.phone : form.name).focus(); form.reportValidity(); return; }
-    if (!form.checkValidity()) { form.reportValidity(); return; }
     const body = [
       `Name: ${name}`, `Phone: ${phone}`, `Email: ${form.email.value.trim()}`,
       `Move date: ${form.date.value || 'Not set yet'}`, `Plan: ${form.plan.value}`,
       `Delivery ZIP or town: ${form.zip.value.trim()}`, '', form.notes.value.trim()
     ].join('\n');
-    lastBody = 'Packwise bin request\n' + body.trim();
-    smsLink.href = 'sms:+14124448833?&body=' + encodeURIComponent(lastBody);
-    copyBtn.textContent = 'Copy my request';
     location.href = 'mailto:miranda@packwisebins.com?subject=' + encodeURIComponent('Bin request from ' + name) + '&body=' + encodeURIComponent(body);
     form.classList.add('done');
-    $('.sent').scrollIntoView({ block: 'nearest', behavior: RM.matches ? 'auto' : 'smooth' });
-  });
-  copyBtn.addEventListener('click', async () => {
-    let ok = false;
-    try { await navigator.clipboard.writeText(lastBody); ok = true; }
-    catch (err) {
-      const ta = document.createElement('textarea'); ta.value = lastBody; ta.style.cssText = 'position:fixed;opacity:0';
-      document.body.appendChild(ta); ta.select();
-      try { ok = document.execCommand('copy'); } catch (e2) {}
-      document.body.removeChild(ta);
-    }
-    copyBtn.textContent = ok ? 'Copied. Paste it in a text or email.' : 'Copy failed. Please call instead.';
   });
 })();
 </script>
