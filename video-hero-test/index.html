@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Packwise | Clean Moving Bins, Greater Pittsburgh</title>
+<meta name="description" content="Skip the cardboard. Packwise delivers clean, sanitized, reusable moving bins to your door in Greater Pittsburgh, then picks them up when you're done. From $79.">
+<meta name="theme-color" content="#1b1d1a">
+<!-- VIDEO HERO TEST PAGE. PREVIEW ONLY: remove this robots line when Miranda approves the public launch -->
+<meta name="robots" content="noindex, nofollow">
+<!-- DEPLOY STEP: replace with absolute live URLs -->
+<meta property="og:title" content="Packwise | Skip the Cardboard. Pack Wiser.">
+<meta property="og:description" content="Clean, reusable moving bins delivered to your door in Greater Pittsburgh. From $79.">
+<meta property="og:image" content="../assets/hero-ending.jpg">
+<meta property="og:url" content="">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "LocalBusiness", "name": "Packwise", "slogan": "Skip the Cardboard. Pack Wiser.", "description": "Clean, sanitized, reusable moving bins delivered to your door in Greater Pittsburgh and picked up when you're done.", "telephone": "+1-412-444-8833", "email": "miranda@packwisebins.com", "areaServed": "Greater Pittsburgh", "priceRange": "$79-$259", "sameAs": ["https://www.instagram.com/packwisebins/", "https://www.facebook.com/packwisebins"], "makesOffer": [{"@type": "Offer", "name": "10 moving bins, delivery and pickup included", "price": "79", "priceCurrency": "USD"}, {"@type": "Offer", "name": "20 moving bins, delivery and pickup included", "price": "119", "priceCurrency": "USD"}, {"@type": "Offer", "name": "40 moving bins, delivery and pickup included", "price": "199", "priceCurrency": "USD"}, {"@type": "Offer", "name": "60 moving bins, delivery and pickup included", "price": "259", "priceCurrency": "USD"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are the bins actually clean?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every bin is cleaned and sanitized after every rental, so nothing from the last move comes along on yours."}}, {"@type": "Question", "name": "How long can I keep them?", "acceptedAnswer": {"@type": "Answer", "text": "Up to 3 weeks. If your closing date moves or you need more time, ask. Packwise can help there too."}}, {"@type": "Question", "name": "Do delivery and pickup cost extra?", "acceptedAnswer": {"@type": "Answer", "text": "No. Delivery and pickup are included in every plan."}}, {"@type": "Question", "name": "How many bins do I need?", "acceptedAnswer": {"@type": "Answer", "text": "10 bins for a studio, dorm or remodeling project. 20 for 1 to 2 bedrooms. 40 for 2 to 3 bedrooms. 60 for 4+ bedrooms, bigger moves and commercial moves. Short a few? Extra bins are one ask away."}}, {"@type": "Question", "name": "Can I get packing paper, bubble wrap or tape?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Paper, bubble wrap, tape and mattress covers are available as add-ons. Mention what you need when you request your bins."}}, {"@type": "Question", "name": "Where do you deliver?", "acceptedAnswer": {"@type": "Answer", "text": "Packwise serves Greater Pittsburgh. Not sure if your address is covered? Call 412-444-8833 and ask."}}, {"@type": "Question", "name": "Will they hold up in the rain?", "acceptedAnswer": {"@type": "Answer", "text": "They're sturdy, stackable and water-resistant. A soggy driveway won't turn them to mush the way it does cardboard."}}]}]}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1d1a'/%3E%3Crect x='12' y='22' width='40' height='8' rx='2' fill='%239aab45'/%3E%3Cpath d='M15 30h34l-3 22H18z' fill='%23eeede4'/%3E%3C/svg%3E">
+<link rel="preload" as="image" type="image/webp" href="../assets/vhero/phone-start.webp" media="(max-width: 720px), (orientation: portrait) and (max-width: 1024px), (orientation: portrait) and (pointer: coarse)">
+<link rel="preload" as="image" type="image/webp" href="../assets/vhero/desktop-start.webp" media="(min-width: 721px) and (orientation: landscape)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#1b1d1a;
+  --panel:#242722;
+  --panel-2:#2d312a;
+  --accent:#9aab45;
+  --accent-hover:#b0c257;
+  --accent-muted:rgba(154,171,69,.26);
+  --kraft:#b8966a;
+  --text-secondary:#b9baac;
+  --text-primary:#eeede4;
+  --line:rgba(238,237,228,.12);
+  --line-strong:rgba(238,237,228,.38);
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --ease-io:cubic-bezier(.65,0,.35,1);
+  --tshadow:0 1px 2px rgba(5,6,4,.95),0 3px 12px rgba(5,6,4,.78),0 10px 44px rgba(5,6,4,.8);
+  --display:"Barlow Condensed",Impact,sans-serif;
+  --body:"Barlow",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;background:var(--canvas)}
+body{overflow-x:hidden;overflow-x:clip;background:var(--canvas);color:var(--text-primary);font-family:var(--body);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;animation:pagein .9s var(--ease-out) both}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.skip{position:absolute;left:-999px;top:8px;z-index:100;background:var(--accent);color:#1b1d1a;padding:10px 16px;border-radius:8px;font-weight:600}
+.skip:focus{left:12px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+.wise{color:var(--accent)}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* environment layer */
+.env{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.env::before{content:"";position:absolute;width:80vmax;height:80vmax;left:-20vmax;top:10vh;border-radius:50%;background:radial-gradient(circle,rgba(154,171,69,.07),transparent 65%);animation:drift 80s var(--ease-io) infinite alternate;animation-delay:-22s}
+.env::after{content:"";position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes drift{to{transform:translate(60vw,40vh)}}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px clamp(16px,4vw,48px);transition:background .5s var(--ease-out),backdrop-filter .5s}
+.nav.solid{background:rgba(27,29,26,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--display);font-weight:800;font-size:1.7rem;letter-spacing:.02em;text-decoration:none;line-height:1}
+.nav ul{display:flex;gap:28px;list-style:none;align-items:baseline}
+.nav ul a{text-decoration:none;font-weight:500;font-size:.98rem;color:var(--text-secondary);transition:color .3s}
+.nav ul a:hover{color:var(--text-primary)}
+.nav ul a.btn-primary,.nav ul a.btn-primary:hover{color:#161812}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--body);font-weight:600;font-size:1rem;text-decoration:none;border-radius:999px;padding:12px 24px;border:1px solid transparent;cursor:pointer;transition:background .35s var(--ease-out),transform .35s var(--ease-out),border-color .35s,color .35s;text-shadow:none}
+.btn-primary{background:var(--accent);color:#161812}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line-strong);color:var(--text-primary);background:rgba(27,29,26,.35)}
+.btn-ghost:hover{border-color:var(--text-primary);transform:translateY(-2px)}
+@media (pointer:coarse){.btn{min-height:44px}.nav ul a{min-height:44px;display:inline-flex;align-items:center}}
+@media (max-width:860px){.nav ul li:not(:last-child){display:none}}
+
+/* hero */
+.hero{position:relative;height:500vh}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#141512}
+.poster,.stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background-size:cover;background-position:center}
+.stage video{opacity:0;transition:opacity .8s var(--ease-out);will-change:transform;transform:translateZ(0)}
+.stage.video-ready video{opacity:1}
+.stage.video-failed video{display:none}
+.scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 120% 90% at 50% 45%,rgba(10,11,8,0) 35%,rgba(10,11,8,.62) 100%)}
+.ring{position:absolute;right:28px;bottom:28px;width:44px;height:44px;color:var(--accent);transform:rotate(-90deg);transition:opacity .6s}
+.stage.video-ready .ring{opacity:0}
+.cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text-secondary);transition:opacity .4s}
+.cue span{width:1px;height:38px;background:linear-gradient(var(--accent),transparent);animation:cue 2.4s var(--ease-io) infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media (max-height:560px){.cue{display:none}}
+
+.band{position:absolute;opacity:0;text-shadow:var(--tshadow);pointer-events:none;max-width:min(400px,27vw)}
+.band.live{pointer-events:auto}
+.band::before{content:"";position:absolute;inset:-60% -50%;z-index:-1;pointer-events:none;opacity:calc(.25 + .75*var(--k,1));background:radial-gradient(ellipse 60% 55% at 50% 50%,rgba(8,9,6,var(--sa,.66)) 0%,rgba(8,9,6,calc(var(--sa,.66)*.66)) 46%,rgba(8,9,6,0) 76%)}
+.band.left{left:clamp(24px,5vw,80px);top:50%;transform:translateY(-50%)}
+.band.right{right:clamp(24px,5vw,80px);top:50%;transform:translateY(-50%);text-align:right}
+.band h2,.band p.big{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.95;letter-spacing:.005em}
+.b1 h2{font-size:clamp(2.4rem,4.4vw,4.4rem)}
+.b2 p.big{font-size:clamp(2.8rem,5.4vw,5.6rem)}
+.b3 h2{font-size:clamp(2.8rem,5.2vw,5.4rem)}
+.b4 h2{font-size:clamp(3.4rem,6.4vw,6.6rem)}
+.band .kick{display:block;margin-bottom:14px;color:var(--text-secondary)}
+.band .sub{font-size:1.06rem;line-height:1.5;color:var(--text-primary);margin-top:16px;max-width:30ch}
+.band .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.b4 .btn{text-shadow:none}
+
+/* split text */
+.w{display:inline-block;white-space:nowrap}
+.c{display:inline-block}
+/* blur-to-sharp for band 1 */
+.b1 .soft,.b1 .sharp{display:block}
+.b1 .stack{position:relative;display:block}
+.b1 .soft{position:absolute;inset:0;filter:blur(10px);opacity:calc(1 - var(--k,0))}
+.b1 .sharp{opacity:var(--k,0)}
+/* word punch band 2 */
+.b2 .w{--kc:clamp(0,(var(--k,0) - var(--th,0))*3,1);--ks:clamp(0,(var(--k,0) - var(--th,0) - var(--sd,.1))*var(--ss,3.2),1);opacity:var(--kc);transform:scale(calc(.6 + (.4 + var(--ov,.12))*var(--kc) - var(--ov,.12)*var(--ks)));transform-origin:right center;display:block}
+.b2 .w.em{--ov:.24;--sd:.16;--ss:2.6;color:var(--kraft)}
+/* drift-down band 3 */
+.b3 .w{--kc:clamp(0,(var(--k,0) - var(--th,0))*2.8,1);opacity:var(--kc);transform:translateY(calc((1 - var(--kc))*-34px))}
+/* staged settle band 4 */
+.b4 .w{--kc:clamp(0,(var(--k,0) - var(--th,0))*3,1);opacity:var(--kc);transform:translateY(calc((1 - var(--kc))*28px))}
+.b4 .sub{opacity:clamp(0,(var(--k,0) - .62)*4,1)}
+.b4 .row{opacity:clamp(0,(var(--k,0) - .76)*5,1);transform:translateY(calc((1 - clamp(0,(var(--k,0) - .76)*5,1))*10px))}
+
+/* static hero */
+.static-hero{display:none}
+@media (max-width: 720px),(orientation: portrait) and (max-width: 1024px),(orientation: portrait) and (pointer: coarse),(orientation: landscape) and (pointer: coarse) and (max-height: 560px),(prefers-reduced-motion: reduce){
+  .hero{display:none}
+  .static-hero{display:flex;position:relative;min-height:100svh;align-items:flex-end;padding:120px 16px 48px;background:#141512 url('../assets/hero-ending.jpg') center 40px/max(230vw,100%) auto no-repeat;background-image:image-set(url('../assets/hero-ending-1920.webp') type('image/webp'),url('../assets/hero-ending.jpg') type('image/jpeg'))}
+  .static-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,15,12,.45) 0%,rgba(14,15,12,0) 18%,rgba(14,15,12,0) 44%,rgba(14,15,12,.88) 64%,#141512 80%)}
+}
+/* phone scroll hero: image sequence on a canvas (JS adds html.seq-on) */
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:none}
+html.seq-on .hero{display:block;height:420vh;background:#141512}
+html.seq-on .static-hero{display:none}
+html.seq-on .stage{height:100vh;height:100svh}
+html.seq-on .stage canvas{display:block}
+html.seq-on .stage video,html.seq-on .stage .poster{display:none}
+.stage.seq-ready .ring{opacity:0}
+html.seq-on .stage.port .band{left:16px;right:16px;top:auto;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:none;max-width:none;text-align:left}
+html.seq-on .stage.port .band.right{text-align:right}
+html.seq-on .stage.port .band .sub{max-width:34ch}
+
+/* video hero test (JS adds html.vh-on) */
+.vhero{display:none;position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:#141512}
+html.vh-on .vhero{display:block}
+html.vh-on .static-hero,html.vh-on .hero{display:none!important}
+.vframe{position:absolute;inset:0;background:#141512 url('../assets/vhero/desktop-start.webp') center/cover no-repeat}
+.vframe video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s var(--ease-out)}
+.vhero.playing .vframe video{opacity:1}
+.vhero.dip .vframe video{opacity:0}
+.vhero.still .vframe{background-image:url('../assets/vhero/desktop-end.webp')}
+.vhero.still .vframe video,.vhero.still .vtoggle{display:none}
+.vshade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(10,11,8,.8) 0%,rgba(10,11,8,.5) 28%,rgba(10,11,8,0) 52%),radial-gradient(ellipse 120% 90% at 50% 45%,rgba(10,11,8,0) 40%,rgba(10,11,8,.55) 100%)}
+.vcopy{position:absolute;left:clamp(24px,5vw,80px);top:50%;transform:translateY(-50%);max-width:min(420px,26vw);text-shadow:var(--tshadow)}
+.vlines{display:grid}
+.vline{grid-area:1/1;align-self:end;font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.95;letter-spacing:.005em;font-size:clamp(2.4rem,4.2vw,4.6rem);opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease-out),transform .6s var(--ease-out)}
+.vline.on{opacity:1;transform:none}
+.vline .kick{display:block;margin-bottom:14px;color:var(--text-secondary);font-family:var(--mono);font-weight:500;font-size:.78rem;line-height:1.2}
+.vline .em{color:var(--kraft)}
+.vsub{margin-top:16px;font-size:1.06rem;line-height:1.5;max-width:32ch;opacity:0;transition:opacity .6s var(--ease-out) .2s}
+.vhero.end .vsub,.vhero.still .vsub{opacity:1}
+.vhero.dip .vline,.vhero.dip .vsub{opacity:0;transition-delay:0s}
+.vcopy .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.vcopy .btn{text-shadow:none}
+.vtoggle{position:absolute;right:20px;bottom:20px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);background:rgba(20,21,18,.55);color:var(--text-primary);display:grid;place-items:center;cursor:pointer;opacity:.75;transition:opacity .3s}
+.vtoggle:hover,.vtoggle:focus-visible{opacity:1}
+.vtoggle svg{width:14px;height:14px}
+.vtoggle .i-play,.vhero.paused .vtoggle .i-pause{display:none}
+.vhero.paused .vtoggle .i-play{display:block}
+@media (max-width: 720px),(orientation: portrait) and (max-width: 1024px),(orientation: portrait) and (pointer: coarse){
+  .vhero{min-height:600px}
+  .vframe{inset:auto;top:44px;left:50%;width:min(100vw,calc(100svh - 340px));aspect-ratio:1/1;transform:translateX(-50%);background-image:url('../assets/vhero/phone-start.webp')}
+  .vhero.still .vframe{background-image:url('../assets/vhero/phone-end.webp')}
+  .vframe::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(20,21,18,.5) 0%,rgba(20,21,18,0) 16%,rgba(20,21,18,0) 66%,#141512 100%),linear-gradient(90deg,#141512 0%,rgba(20,21,18,0) 6%,rgba(20,21,18,0) 94%,#141512 100%)}
+  .vshade{display:none}
+  .vcopy{left:16px;right:16px;top:auto;bottom:calc(32px + env(safe-area-inset-bottom,0px));transform:none;max-width:none}
+  .vline{font-size:clamp(2.3rem,10.5vw,3.6rem)}
+  .vtoggle{right:12px;bottom:auto;top:12px;width:36px;height:36px;z-index:1}
+}
+
+.static-hero .inner{position:relative;max-width:560px;text-shadow:var(--tshadow)}
+.static-hero h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(3rem,13vw,5.2rem);line-height:.92}
+.static-hero p{margin-top:14px;font-size:1.08rem;max-width:34ch}
+.static-hero .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+
+/* sections */
+main section{position:relative;padding:clamp(88px,12vw,150px) clamp(16px,5vw,64px)}
+.wrap{max-width:1180px;margin:0 auto}
+.kicker{color:var(--accent);display:block;margin-bottom:16px}
+.h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(2.6rem,6vw,4.8rem);line-height:.95;letter-spacing:.005em}
+.lede{color:var(--text-secondary);font-size:1.15rem;max-width:52ch;margin-top:18px}
+
+/* entrances */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.in .rv,.rv.in{opacity:1;transform:none}
+.in .rv:nth-child(2){transition-delay:.1s}
+.in .rv:nth-child(3){transition-delay:.2s}
+.in .rv:nth-child(4){transition-delay:.3s}
+.in .rv:nth-child(5){transition-delay:.4s}
+.in .rv:nth-child(6){transition-delay:.5s}
+.done .rv,.done .rv:nth-child(2),.done .rv:nth-child(3),.done .rv:nth-child(4),.done .rv:nth-child(5),.done .rv:nth-child(6){transition-delay:0s}
+
+/* signature: the skip strike */
+.skipline{display:flex;flex-wrap:wrap;gap:10px 34px;margin-top:40px;font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.1;color:var(--text-secondary)}
+.strike{position:relative;display:inline-block}
+.strike svg{position:absolute;left:-6%;top:42%;width:112%;height:.5em;overflow:visible;pointer-events:none}
+.strike path{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round;stroke-dasharray:var(--len,300);stroke-dashoffset:var(--len,300);transition:stroke-dashoffset .9s var(--ease-out)}
+.in .strike path{stroke-dashoffset:0}
+.in .strike:nth-child(2) path{transition-delay:.35s}
+.in .strike:nth-child(3) path{transition-delay:.7s}
+
+/* intro */
+.intro .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,80px);align-items:center}
+.intro figure{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.intro figure picture,.step picture{display:block}
+.step picture{overflow:hidden}
+.remodel picture{display:block;height:100%}
+.intro figure img{aspect-ratio:16/11;object-fit:cover;width:100%}
+.intro figcaption{position:absolute;left:14px;bottom:14px;background:rgba(14,15,12,.7);backdrop-filter:blur(8px);padding:6px 12px;border-radius:999px;color:var(--text-secondary)}
+@media (max-width:860px){.intro .grid{grid-template-columns:1fr}}
+
+/* how it works */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;counter-reset:s}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.step img{aspect-ratio:4/3;object-fit:cover;width:100%;transition:transform 1.2s var(--ease-out)}
+.step:hover img{transform:scale(1.04)}
+.step .body{padding:24px 24px 28px}
+.step .num{color:var(--accent)}
+.step h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:2rem;line-height:1;margin:10px 0 10px}
+.step p{color:var(--text-secondary)}
+.track{position:relative;height:2px;margin-top:40px;background:var(--line)}
+.track i{position:absolute;inset:0;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1.6s var(--ease-out) .3s}
+.in .track i{transform:scaleX(1)}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
+
+/* why */
+.why{background:linear-gradient(180deg,transparent,rgba(36,39,34,.6) 20%,rgba(36,39,34,.6) 80%,transparent)}
+.why .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,90px);align-items:start}
+.feats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line)}
+.feat{display:flex;gap:18px;align-items:flex-start;padding:26px 8px 26px 0;border-bottom:1px solid var(--line)}
+.feat:nth-child(odd){padding-right:24px}
+.feat svg{flex:0 0 44px;width:44px;height:44px;color:var(--accent)}
+.feat h3{font-family:var(--body);font-weight:600;font-size:1.12rem;line-height:1.3}
+.feat p{color:var(--text-secondary);font-size:.98rem;margin-top:4px}
+.why .glow{position:relative;display:inline-block}
+.why .glow::after{content:"";position:absolute;inset:-20% -10%;background:radial-gradient(closest-side,var(--accent-muted),transparent);z-index:-1;opacity:.5;animation:pulse 6s var(--ease-io) infinite alternate;animation-delay:-2s}
+@keyframes pulse{to{opacity:1}}
+@media (max-width:860px){.why .grid{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.feat:nth-child(odd){padding-right:8px}}
+
+/* pricing + picker */
+.pricing .head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.picker{margin-top:48px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.picker .q{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:1.7rem;line-height:1.1}
+.opts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.opt{font:600 .98rem var(--body);color:var(--text-primary);background:transparent;border:1px solid var(--line-strong);border-radius:999px;padding:10px 18px;cursor:pointer;transition:background .35s var(--ease-out),color .35s,border-color .35s}
+.opt:hover{border-color:var(--text-primary)}
+.opt[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#161812}
+.result{margin-top:22px;min-height:4.4em;color:var(--text-secondary)}
+.result strong{color:var(--text-primary)}
+.stack{display:flex;flex-direction:column-reverse;align-items:center;justify-content:flex-start;height:300px;gap:4px}
+.tote{width:150px;height:40px;position:relative;opacity:0;transform:translateY(-60px);transition:opacity .45s var(--ease-out),transform .6s cubic-bezier(.34,1.56,.64,1)}
+.tote.on{opacity:1;transform:none}
+.tote::before{content:"";position:absolute;left:-6px;right:-6px;top:0;height:9px;border-radius:3px;background:var(--accent)}
+.tote::after{content:"";position:absolute;left:4px;right:4px;top:9px;bottom:0;border-radius:0 0 5px 5px;background:#0f100e;border:1px solid rgba(238,237,228,.14);border-top:0}
+.tote b{position:absolute;z-index:1;left:0;right:0;top:15px;text-align:center;font:500 .66rem var(--mono);letter-spacing:.12em;color:var(--text-secondary)}
+.stack-cap{text-align:center;margin-top:12px;color:var(--text-secondary)}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+.tier{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px 22px 24px;transition:border-color .45s var(--ease-out),transform .45s var(--ease-out),background .45s}
+.tier.pick{border-color:var(--accent);transform:translateY(-6px);background:var(--panel-2)}
+.tier .count{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.4rem;color:var(--text-secondary)}
+.tier .price{font-family:var(--display);font-weight:800;font-size:4.2rem;line-height:1;margin:6px 0 12px}
+.tier .price sup{font-size:.45em;vertical-align:.95em;margin-right:2px}
+.tier{display:flex;flex-direction:column}
+.tier p{color:var(--text-secondary);font-size:.98rem;line-height:1.45;flex:1}
+.tier .btn{margin-top:20px;font-size:.95rem;padding:10px 16px}
+.tier.pick .btn{background:var(--accent);border-color:var(--accent);color:#161812}
+.result a{color:var(--accent);font-weight:600;white-space:nowrap}
+.tier .tag{position:absolute;top:-12px;left:22px;background:var(--accent);color:#161812;padding:3px 10px;border-radius:999px;opacity:0;transform:translateY(4px);transition:opacity .4s,transform .4s var(--ease-out)}
+.tier.pick .tag{opacity:1;transform:none}
+.inc{margin-top:22px;color:var(--text-secondary);font-size:.98rem}
+@media (max-width:960px){.tiers{grid-template-columns:repeat(2,1fr)}.picker{grid-template-columns:1fr}.stack{height:240px}}
+@media (max-width:520px){.tiers{grid-template-columns:1fr}}
+
+/* need more */
+.more{padding-top:0!important}
+.more .bar{display:grid;grid-template-columns:1.1fr repeat(3,1fr);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.more .bar > div{padding:30px 26px;border-left:1px solid var(--line)}
+.more .bar > div:first-child{border-left:0;background:var(--panel-2)}
+.more h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:2.2rem;line-height:.95}
+.more h4{font-family:var(--body);font-weight:600;font-size:1.08rem;margin:14px 0 4px}
+.more p{color:var(--text-secondary);font-size:.98rem}
+.more svg{width:36px;height:36px;color:var(--accent)}
+@media (max-width:860px){.more .bar{grid-template-columns:1fr}.more .bar > div{border-left:0;border-top:1px solid var(--line)}.more .bar > div:first-child{border-top:0}}
+
+/* remodel */
+.remodel .grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:22px;overflow:hidden;background:var(--panel)}
+.remodel img{width:100%;height:100%;object-fit:cover;min-height:380px}
+.remodel .copy{padding:clamp(28px,5vw,64px);align-self:center}
+@media (max-width:860px){.remodel .grid{grid-template-columns:1fr}.remodel img{min-height:260px}}
+
+/* faq */
+.faq .grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(32px,6vw,90px)}
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;font-weight:600;font-size:1.12rem}
+summary::-webkit-details-marker{display:none}
+summary .pm{flex:0 0 18px;height:18px;position:relative;align-self:center}
+summary .pm::before,summary .pm::after{content:"";position:absolute;left:0;right:0;top:8px;height:2px;background:var(--accent);transition:transform .4s var(--ease-out)}
+summary .pm::after{transform:rotate(90deg)}
+details[open] summary .pm::after{transform:rotate(0)}
+details .ans{color:var(--text-secondary);padding:0 40px 24px 0;max-width:62ch}
+@media (max-width:860px){.faq .grid{grid-template-columns:1fr}}
+
+/* request */
+.request .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.contact{list-style:none;margin-top:32px;display:grid;gap:14px}
+.contact a{text-decoration:none;display:inline-flex;gap:12px;align-items:center;font-weight:500}
+.contact a:hover{color:var(--accent)}
+.contact svg{width:22px;height:22px;color:var(--accent);flex:0 0 22px}
+form{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+form .full{grid-column:1/-1}
+label{display:block;font-size:.92rem;font-weight:600;margin-bottom:6px}
+input,select,textarea{width:100%;font:400 1rem var(--body);color:var(--text-primary);background:#1b1d1a;border:1px solid rgba(238,237,228,.34);border-radius:12px;padding:12px 14px;transition:border-color .3s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:96px;resize:vertical}
+form .note{font-size:.9rem;color:var(--text-secondary)}
+.sent{display:none;grid-column:1/-1;background:var(--panel-2);border:1px solid var(--accent);border-radius:14px;padding:16px 18px}
+.sent .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.sent .btn{font-size:.95rem;padding:10px 18px}
+form.done .sent{display:block}
+@media (max-width:860px){.request .grid{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+
+/* footer */
+footer{padding:64px clamp(16px,5vw,64px) 40px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+footer .sky{width:260px;max-width:100%;color:var(--accent);opacity:.8}
+footer .sky path{stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 2.6s var(--ease-out)}
+footer.in .sky path{stroke-dashoffset:0}
+footer small{display:block;color:var(--text-secondary);margin-top:10px}
+
+body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused!important}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;transition-delay:0s!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+  .strike path,footer .sky path{stroke-dashoffset:0}
+  .track i{transform:none}
+  .tote{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="env" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="#top" aria-label="Packwise home">PACK<span class="wise">WISE</span></a>
+  <ul>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a class="btn btn-primary" href="#request">Request bins</a></li>
+  </ul>
+</nav>
+
+<header id="top">
+  <!-- Video hero TEST: plays once, holds on the bin, then replays -->
+  <div class="vhero" id="vhero">
+    <h1 class="vh">Skip the cardboard. Pack wiser. Clean moving bins delivered in Greater Pittsburgh.</h1>
+    <div class="vframe">
+      <video id="hvid" muted playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+      <button class="vtoggle" type="button" aria-label="Pause video">
+        <svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
+        <svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9.5-5.5z" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <div class="vshade" aria-hidden="true"></div>
+    <div class="vcopy">
+      <div class="vlines" aria-hidden="true">
+        <p class="vline"><span class="kick">Exhibit A</span>That box has been in somebody's basement.</p>
+        <p class="vline">Damp. Moldy. <span class="em">Occupied.</span></p>
+        <p class="vline">Skip the cardboard. <span class="wise">Pack wiser.</span></p>
+      </div>
+      <p class="vsub">Clean, sanitized moving bins delivered to your door. When you're moved in, we pick them up.</p>
+      <div class="row">
+        <a class="btn btn-primary" href="#request">Request your bins</a>
+        <a class="btn btn-ghost" href="#pricing">See pricing</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Static hero (reduced motion, data saver, or if the phone frames can't load) -->
+  <div class="static-hero">
+    <div class="inner">
+      <h1>Skip the cardboard. <span class="wise">Pack wiser.</span></h1>
+      <p>Clean, sanitized moving bins delivered to your door anywhere in Greater Pittsburgh. When you're moved in, we pick them up.</p>
+      <div class="row">
+        <a class="btn btn-primary" href="#request">Request your bins</a>
+        <a class="btn btn-ghost" href="#pricing">See pricing</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <section class="intro" aria-labelledby="intro-h">
+    <div class="wrap grid io">
+      <div>
+        <span class="kicker mono rv">Moving just got easier</span>
+        <h2 class="h2 rv" id="intro-h">Clean bins in.<br>Cardboard out.</h2>
+        <p class="lede rv">Packwise drops off clean, sturdy moving bins at your door. You pack and move. When you're finished, we come get them.</p>
+        <div class="skipline rv" aria-label="No box assembly. No tape. No cardboard mess.">
+          <span class="strike">Box assembly<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 6 C 30 2, 60 9, 98 4"/></svg></span>
+          <span class="strike">Tape<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5 C 30 8, 70 1, 98 6"/></svg></span>
+          <span class="strike">Cardboard mess<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 6 C 35 1, 65 9, 98 3"/></svg></span>
+        </div>
+      </div>
+      <figure class="rv">
+        <picture><source type="image/webp" srcset="../assets/hero-ending-960.webp 960w, ../assets/hero-ending-1920.webp 1920w" sizes="(max-width:860px) 100vw, 520px"><img src="../assets/hero-ending.jpg" alt="A clean black Packwise bin with an olive lid sitting on a crushed, moldy cardboard box" loading="lazy" width="1920" height="1080"></picture>
+        <figcaption class="mono">Case closed</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="how" id="how" aria-labelledby="how-h">
+    <div class="wrap io">
+      <span class="kicker mono rv">How it works</span>
+      <h2 class="h2 rv" id="how-h">Three steps. Zero boxes.</h2>
+      <div class="track rv" aria-hidden="true"><i></i></div>
+      <div class="steps">
+        <article class="step rv">
+          <picture><source type="image/webp" srcset="../assets/step-deliver-800.webp 800w, ../assets/step-deliver-1600.webp 1600w" sizes="(max-width:860px) 100vw, 380px"><img src="../assets/step-deliver.jpg" alt="Stacked black moving bins with olive lids delivered to a front porch" loading="lazy" width="1600" height="1200"></picture>
+          <div class="body"><span class="num mono">01</span><h3>We deliver</h3><p>Clean Packwise bins arrive at your door, ready to pack.</p></div>
+        </article>
+        <article class="step rv">
+          <picture><source type="image/webp" srcset="../assets/step-pack-800.webp 800w, ../assets/step-pack-1600.webp 1600w" sizes="(max-width:860px) 100vw, 380px"><img src="../assets/step-pack.jpg" alt="Open moving bins being packed in a bright living room" loading="lazy" width="1600" height="1200"></picture>
+          <div class="body"><span class="num mono">02</span><h3>You pack &amp; move</h3><p>No box assembly. No tape. Snap the lid shut and stack them up.</p></div>
+        </article>
+        <article class="step rv">
+          <picture><source type="image/webp" srcset="../assets/step-pickup-800.webp 800w, ../assets/step-pickup-1600.webp 1600w" sizes="(max-width:860px) 100vw, 380px"><img src="../assets/step-pickup.jpg" alt="Empty moving bins stacked neatly by the door of a new home, ready for pickup" loading="lazy" width="1600" height="1200"></picture>
+          <div class="body"><span class="num mono">03</span><h3>We pick up</h3><p>When you're finished moving, we come get the bins. Nothing to break down or haul to the curb.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" aria-labelledby="why-h">
+    <div class="wrap grid io">
+      <div>
+        <span class="kicker mono rv">Why Packwise</span>
+        <h2 class="h2 rv" id="why-h">Built for the move. <span class="glow">Not the basement.</span></h2>
+        <p class="lede rv">Cardboard sags, soaks through and splits at the bottom. These don't.</p>
+      </div>
+      <div class="feats">
+        <div class="feat rv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6l3.5 9.5L37 19l-9.5 3.5L24 32l-3.5-9.5L11 19l9.5-3.5z"/><path d="M37 31l1.6 4.4L43 37l-4.4 1.6L37 43l-1.6-4.4L31 37l4.4-1.6z"/></svg><div><h3>Cleaned and sanitized</h3><p>After every single rental.</p></div></div>
+        <div class="feat rv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 8L6 17l18 9 18-9z"/><path d="M6 25l18 9 18-9"/><path d="M6 33l18 9 18-9"/></svg><div><h3>Sturdy and stackable</h3><p>Water-resistant, so a wet moving day stays outside the bin.</p></div></div>
+        <div class="feat rv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="3"/><path d="M8 40L40 8"/></svg><div><h3>No assembling</h3><p>And no breaking down boxes when it's over.</p></div></div>
+        <div class="feat rv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h24v20H4z"/><path d="M28 18h9l7 7v7H28z"/><circle cx="12" cy="35" r="4"/><circle cx="36" cy="35" r="4"/></svg><div><h3>Delivery and pickup included</h3><p>Built into every price. No surprise trip fees.</p></div></div>
+        <div class="feat rv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="9" width="36" height="33" rx="4"/><path d="M6 18h36M16 5v8M32 5v8"/><path d="M15 27h3M23 27h3M31 27h3M15 34h3M23 34h3"/></svg><div><h3>Up to 3 weeks of use</h3><p>Pack early, unpack slowly. Need longer? Just ask.</p></div></div>
+        <div class="feat rv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M40 8C20 8 8 18 8 32c0 3 1 6 2 8"/><path d="M40 8c0 20-10 30-24 30"/><path d="M10 40c6-10 14-18 24-24"/></svg><div><h3>A greener alternative</h3><p>Bins that get used again and again, instead of a pile of cardboard on the curb.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing" aria-labelledby="price-h">
+    <div class="wrap io">
+      <div class="head">
+        <div>
+          <span class="kicker mono rv">Pricing</span>
+          <h2 class="h2 rv" id="price-h">Clean. Simple.<br>Convenient.</h2>
+        </div>
+        <p class="lede rv">One price covers the bins, delivery and pickup.</p>
+      </div>
+
+      <div class="picker rv">
+        <div>
+          <p class="q" id="pick-q">How big is your move?</p>
+          <div class="opts" role="group" aria-labelledby="pick-q">
+            <button class="opt" type="button" data-tier="0" aria-pressed="false">Studio or dorm</button>
+            <button class="opt" type="button" data-tier="0" aria-pressed="false">Remodeling project</button>
+            <button class="opt" type="button" data-tier="1" aria-pressed="false">1 to 2 bedrooms</button>
+            <button class="opt" type="button" data-tier="2" aria-pressed="false">2 to 3 bedrooms</button>
+            <button class="opt" type="button" data-tier="3" aria-pressed="false">4+ bedrooms or commercial</button>
+          </div>
+          <p class="result" aria-live="polite">Pick one and we'll stack up the right number of bins.</p>
+        </div>
+        <div>
+          <div class="stack" aria-hidden="true">
+            <div class="tote"><b>10</b></div><div class="tote"><b>20</b></div><div class="tote"><b>30</b></div><div class="tote"><b>40</b></div><div class="tote"><b>50</b></div><div class="tote"><b>60</b></div>
+          </div>
+          <p class="stack-cap mono" aria-hidden="true">Each layer = 10 bins</p>
+        </div>
+      </div>
+
+      <div class="tiers">
+        <div class="tier rv" data-i="0"><span class="tag mono">Your fit</span><div class="count">10 bins</div><div class="price"><sup>$</sup>79</div><p>Perfect for studio apartments, dorms and remodeling projects.</p><a class="btn btn-ghost" href="#request" data-plan="0">Choose 10 bins</a></div>
+        <div class="tier rv" data-i="1"><span class="tag mono">Your fit</span><div class="count">20 bins</div><div class="price"><sup>$</sup>119</div><p>Great for 1 to 2 bedroom homes.</p><a class="btn btn-ghost" href="#request" data-plan="1">Choose 20 bins</a></div>
+        <div class="tier rv" data-i="2"><span class="tag mono">Your fit</span><div class="count">40 bins</div><div class="price"><sup>$</sup>199</div><p>Ideal for 2 to 3 bedroom homes.</p><a class="btn btn-ghost" href="#request" data-plan="2">Choose 40 bins</a></div>
+        <div class="tier rv" data-i="3"><span class="tag mono">Your fit</span><div class="count">60 bins</div><div class="price"><sup>$</sup>259</div><p>Best for 4+ bedroom homes, larger moves and commercial moves.</p><a class="btn btn-ghost" href="#request" data-plan="3">Choose 60 bins</a></div>
+      </div>
+      <p class="inc rv">Every plan: delivery, pickup, and up to 3 weeks with the bins.</p>
+    </div>
+  </section>
+
+  <section class="more" aria-labelledby="more-h">
+    <div class="wrap io">
+      <div class="bar rv">
+        <div><span class="kicker mono">Need more?</span><h3 id="more-h">We've got you covered.</h3></div>
+        <div><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M24 6l16 8v20l-16 8-16-8V14z"/><path d="M8 14l16 8 16-8M24 22v20"/></svg><h4>Packing add-ons</h4><p>Paper, bubble wrap, tape or mattress covers. Ask about add-ons.</p></div>
+        <div><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M8 12h32v6H8zM11 18h26l-2 10H13zM8 30h32v6H8zM11 36h26"/></svg><h4>Extra bins</h4><p>Running short? Just ask.</p></div>
+        <div><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="26" r="16"/><path d="M24 16v10l7 4M18 4h12"/></svg><h4>More time</h4><p>Closing got pushed? We can help there too.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="remodel" aria-labelledby="rem-h">
+    <div class="wrap io">
+      <div class="grid rv">
+        <picture><source type="image/webp" srcset="../assets/remodel-800.webp 800w, ../assets/remodel-1600.webp 1600w" sizes="(max-width:860px) 100vw, 590px"><img src="../assets/remodel.jpg" alt="Packed moving bins stacked neatly in a room under renovation, protected from the dust" loading="lazy" width="1600" height="1200"></picture>
+        <div class="copy">
+          <span class="kicker mono">Not moving? Remodeling?</span>
+          <h2 class="h2" id="rem-h">Keep it clean while the dust flies.</h2>
+          <p class="lede">Pack up the rooms you're working on. Your stuff stays clean, organized and out of the way while you make the house the way you want it.</p>
+          <p style="margin-top:26px"><a class="btn btn-ghost" href="#request">Start with 10 bins for $79</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <div class="wrap grid io">
+      <div>
+        <span class="kicker mono rv">Questions</span>
+        <h2 class="h2 rv" id="faq-h">Fair questions.</h2>
+        <p class="lede rv">Anything else, call or email Miranda. A real person answers.</p>
+      </div>
+      <div class="rv">
+        <details><summary>Are the bins actually clean?<span class="pm" aria-hidden="true"></span></summary><p class="ans">Yes. Every bin is cleaned and sanitized after every rental, so nothing from the last move comes along on yours.</p></details>
+        <details><summary>How long can I keep them?<span class="pm" aria-hidden="true"></span></summary><p class="ans">Up to 3 weeks. If your closing date moves or you need more time, ask. Packwise can help there too.</p></details>
+        <details><summary>Do delivery and pickup cost extra?<span class="pm" aria-hidden="true"></span></summary><p class="ans">No. Delivery and pickup are included in every plan.</p></details>
+        <details><summary>How many bins do I need?<span class="pm" aria-hidden="true"></span></summary><p class="ans">10 bins for a studio, dorm or remodeling project. 20 for 1 to 2 bedrooms. 40 for 2 to 3 bedrooms. 60 for 4+ bedrooms, bigger moves and commercial moves. Short a few? Extra bins are one ask away.</p></details>
+        <details><summary>Can I get packing paper, bubble wrap or tape?<span class="pm" aria-hidden="true"></span></summary><p class="ans">Yes. Paper, bubble wrap, tape and mattress covers are available as add-ons. Mention what you need when you request your bins.</p></details>
+        <details><summary>Where do you deliver?<span class="pm" aria-hidden="true"></span></summary><p class="ans">Packwise serves Greater Pittsburgh. Not sure if your address is covered? Call 412-444-8833 and ask.</p></details>
+        <details><summary>Will they hold up in the rain?<span class="pm" aria-hidden="true"></span></summary><p class="ans">They're sturdy, stackable and water-resistant. A soggy driveway won't turn them to mush the way it does cardboard.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="request" id="request" aria-labelledby="req-h">
+    <div class="wrap grid io">
+      <div>
+        <span class="kicker mono rv">Ready to make your move easier?</span>
+        <h2 class="h2 rv" id="req-h">Request your bins.</h2>
+        <p class="lede rv">Tell us your date and your size. Miranda gets back to you to set up delivery.</p>
+        <ul class="contact rv">
+          <li><a href="tel:+14124448833"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>412-444-8833</a></li>
+          <li><a href="mailto:miranda@packwisebins.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>miranda@packwisebins.com</a></li>
+          <li><a href="https://www.instagram.com/packwisebins/" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>@packwisebins</a></li>
+          <li><a href="https://www.facebook.com/packwisebins" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
+          <li><span style="display:inline-flex;gap:12px;align-items:center;color:var(--text-secondary)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:22px;height:22px;color:var(--accent)"><path d="M12 22s8-7.4 8-13a8 8 0 0 0-16 0c0 5.6 8 13 8 13z"/><circle cx="12" cy="9" r="3"/></svg>Serving Greater Pittsburgh</span></li>
+        </ul>
+      </div>
+      <form class="rv" id="reqform" novalidate>
+        <div><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div class="full"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div><label for="f-date">Move date</label><input id="f-date" name="date" type="date"></div>
+        <div><label for="f-plan">Plan</label>
+          <select id="f-plan" name="plan">
+            <option>10 bins, $79</option><option selected>20 bins, $119</option><option>40 bins, $199</option><option>60 bins, $259</option><option>Not sure yet</option>
+          </select></div>
+        <div class="full"><label for="f-zip">Delivery ZIP or town</label><input id="f-zip" name="zip" autocomplete="postal-code" placeholder="e.g. 15237 or Cranberry"></div>
+        <div class="full"><label for="f-notes">Anything else? <span style="font-weight:400;color:var(--text-secondary)">(add-ons, extra bins, more time)</span></label><textarea id="f-notes" name="notes"></textarea></div>
+        <div class="full"><button class="btn btn-primary" type="submit">Request my bins</button></div>
+        <p class="note full">Sending opens your email app with everything filled in, addressed to Miranda at Packwise. Hit send there and you're done. No email app? You can text the same request instead.</p>
+        <div class="sent" role="status"><p>Your email app should be open with your request ready. Send it, and Miranda will be in touch.</p><p style="margin-top:8px">Nothing opened? Send it another way, or call 412-444-8833.</p><div class="row"><a class="btn btn-primary" id="sms-link" href="sms:+14124448833">Text it instead</a><button class="btn btn-ghost" type="button" id="copy-req">Copy my request</button></div></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="io">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top">PACK<span class="wise">WISE</span></a>
+      <small>Skip the Cardboard. Pack Wiser.</small>
+      <small>412-444-8833 · miranda@packwisebins.com · @packwisebins</small>
+    </div>
+    <div style="text-align:right">
+      <svg class="sky" viewBox="0 0 260 70" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M2 66h256M14 66V44h10v22M28 66V30h12v36M44 66V20l6-8 6 8v46M60 66V36h10v30M74 66V24h4V14h4v10h4v42M92 66V40h12v26M108 66V8l8-6 8 6v58M128 66V32h14v34M146 66V22h10v44M160 66V42h8v24M172 66V28l7-7 7 7v38M190 66V38h12v28M206 66V18h10v48M220 66V34h10v32M234 66V46h12v20"/></svg>
+      <small>Serving Greater Pittsburgh</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const RM = matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* nav background */
+  const nav = $('.nav');
+  const navCheck = () => { const s = scrollY > 40; if (s !== navCheck.s) { navCheck.s = s; nav.classList.toggle('solid', s); } };
+  addEventListener('scroll', navCheck, { passive: true }); navCheck();
+
+  /* pause loops on hidden tabs */
+  document.addEventListener('visibilitychange', () => document.body.classList.toggle('paused', document.hidden));
+
+  /* section entrances */
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    setTimeout(() => e.target.classList.add('done'), 1600);
+    io.unobserve(e.target);
+  }), { threshold: 0, rootMargin: '0px 0px -18% 0px' });
+  $$('.io').forEach(el => io.observe(el));
+  $$('.strike path').forEach(p => p.style.setProperty('--len', Math.ceil(p.getTotalLength() + 4)));
+
+  /* ---------- text split (seeded) ---------- */
+  function rng(seed) { let s = seed >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; }
+  $$('.split').forEach((el, n) => {
+    const r = rng(17 + n * 101);
+    const sr = document.createElement('span'); sr.className = 'vh'; sr.textContent = el.textContent.trim();
+    const vis = document.createElement('span'); vis.setAttribute('aria-hidden', 'true');
+    const em = el.dataset.em ? +el.dataset.em : -1;
+    const words = [];
+    el.childNodes.forEach(node => {
+      const wise = node.nodeType === 1;
+      node.textContent.split(/\s+/).filter(Boolean).forEach(t => words.push({ t, wise }));
+    });
+    words.forEach((w, i) => {
+      const s = document.createElement('span');
+      s.className = 'w' + (i === em ? ' em' : '') + (w.wise ? ' wise' : '');
+      s.textContent = w.t;
+      s.style.setProperty('--th', (i / Math.max(1, words.length) * 0.5 + r() * 0.06).toFixed(3));
+      vis.appendChild(s);
+      if (i < words.length - 1) vis.appendChild(document.createTextNode(' '));
+    });
+    el.textContent = ''; el.append(sr, vis);
+  });
+
+  /* ---------- video hero (test) ---------- */
+  const vhero = $('#vhero'), hvid = $('#hvid'), vtoggle = $('.vtoggle'), vlines = $$('.vline');
+  const SAVE_DATA = !!(navigator.connection && navigator.connection.saveData);
+  const PORTRAIT = matchMedia('(max-width: 720px), (orientation: portrait) and (max-width: 1024px), (orientation: portrait) and (pointer: coarse)');
+  const CUES = [[0, 2.3], [2.45, 4.3], [4.45, 1e9]];
+  const HOLD = 3500;
+  let vSrc = '', holdT = 0, rafV = 0, inView = true, still = false, userPaused = false, lineOn = -2;
+  document.documentElement.classList.add('vh-on');
+
+  function pickSrc() {
+    if (PORTRAIT.matches) return '../assets/vhero/phone.mp4';
+    return innerWidth * Math.min(devicePixelRatio || 1, 2) > 1400 ? '../assets/vhero/desktop.mp4' : '../assets/vhero/desktop-1280.mp4';
+  }
+  function showLine(i) {
+    if (i === lineOn) return; lineOn = i;
+    vlines.forEach((l, n) => l.classList.toggle('on', n === i));
+    vhero.classList.toggle('end', i === 2);
+  }
+  function syncCaptions() {
+    const t = hvid.currentTime;
+    showLine(CUES.findIndex(([a, b]) => t >= a && t < b));
+    if (!hvid.paused && !hvid.ended) rafV = requestAnimationFrame(syncCaptions);
+  }
+  function goStill() {
+    still = true; clearTimeout(holdT); cancelAnimationFrame(rafV);
+    if (hvid.getAttribute('src')) { hvid.pause(); hvid.removeAttribute('src'); hvid.load(); }
+    vSrc = ''; vhero.classList.remove('playing', 'dip', 'paused'); vhero.classList.add('still'); showLine(2);
+  }
+  function canPlay() { return !still && !userPaused && inView && !document.hidden; }
+  function play() {
+    if (!canPlay()) return;
+    const p = hvid.play();
+    if (p) p.catch(err => { if (err && err.name === 'NotAllowedError') goStill(); });
+  }
+  function restart() {
+    vhero.classList.add('dip');
+    holdT = setTimeout(() => { hvid.currentTime = 0; vhero.classList.remove('dip'); showLine(0); play(); }, 450);
+  }
+  function resume() { clearTimeout(holdT); if (!canPlay()) return; if (hvid.ended) restart(); else play(); }
+  function stop() { clearTimeout(holdT); vhero.classList.remove('dip'); if (!hvid.paused) hvid.pause(); }
+  function startVideo() {
+    if (RM.matches || SAVE_DATA) { goStill(); return; }
+    still = false; vhero.classList.remove('still');
+    const src = pickSrc();
+    if (src !== vSrc) { vSrc = src; vhero.classList.remove('playing'); showLine(0); hvid.src = src; }
+    resume();
+  }
+  hvid.addEventListener('playing', () => { vhero.classList.add('playing'); cancelAnimationFrame(rafV); syncCaptions(); });
+  hvid.addEventListener('ended', () => { showLine(2); if (canPlay()) holdT = setTimeout(restart, HOLD); });
+  hvid.addEventListener('error', () => { if (hvid.getAttribute('src')) goStill(); });
+  vtoggle.addEventListener('click', () => {
+    userPaused = !userPaused;
+    vhero.classList.toggle('paused', userPaused);
+    vtoggle.setAttribute('aria-label', userPaused ? 'Play video' : 'Pause video');
+    if (userPaused) stop(); else resume();
+  });
+  new IntersectionObserver(es => es.forEach(e => { inView = e.isIntersecting; if (inView) resume(); else stop(); }), { threshold: 0.15 }).observe(vhero);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else resume(); });
+  PORTRAIT.addEventListener('change', () => { if (!still) startVideo(); });
+
+  /* ---------- plan picker (the interactive moment) ---------- */
+  const opts = $$('.opt'), totes = $$('.tote'), tiers = $$('.tier'), result = $('.result'), plan = $('#f-plan');
+  const LAYERS = [1, 2, 4, 6];
+  const COPY = [
+    '<strong>10 bins, $79.</strong> Right-sized for a studio, a dorm or a remodel.',
+    '<strong>20 bins, $119.</strong> The sweet spot for 1 to 2 bedrooms.',
+    '<strong>40 bins, $199.</strong> Ideal for 2 to 3 bedrooms.',
+    '<strong>60 bins, $259.</strong> Built for 4+ bedrooms, bigger moves and commercial moves.'
+  ];
+  let stagger = [];
+  function pick(btn) {
+    const t = +btn.dataset.tier;
+    opts.forEach(o => o.setAttribute('aria-pressed', o === btn ? 'true' : 'false'));
+    stagger.forEach(clearTimeout); stagger = [];
+    totes.forEach((el, i) => {
+      const on = i < LAYERS[t];
+      if (RM.matches) { el.classList.toggle('on', on); return; }
+      if (on && !el.classList.contains('on')) stagger.push(setTimeout(() => el.classList.add('on'), i * 110));
+      if (!on) el.classList.remove('on');
+    });
+    tiers.forEach(el => el.classList.toggle('pick', +el.dataset.i === t));
+    result.innerHTML = COPY[t] + ' Delivery and pickup included. <a href="#request">Request these bins</a>';
+    plan.selectedIndex = t;
+  }
+  opts.forEach(o => o.addEventListener('click', () => pick(o)));
+  $$('.tier .btn').forEach(a => a.addEventListener('click', () => {
+    const t = +a.dataset.plan;
+    tiers.forEach(el => el.classList.toggle('pick', +el.dataset.i === t));
+    plan.selectedIndex = t;
+  }));
+
+  function pinToFinalStates() {
+    goStill();
+    $$('.io').forEach(el => el.classList.add('in', 'done'));
+    stagger.forEach(clearTimeout);
+    const pressed = opts.find(o => o.getAttribute('aria-pressed') === 'true');
+    if (pressed) totes.forEach((el, i) => el.classList.toggle('on', i < LAYERS[+pressed.dataset.tier]));
+  }
+  function unpinFinalStates() { /* entrances are one-way; scrub state is recomputed by enableScrub */ }
+  RM.addEventListener('change', e => { if (e.matches) pinToFinalStates(); else startVideo(); });
+  if (RM.matches) pinToFinalStates();
+  startVideo();
+
+  /* ---------- request form (mailto) ---------- */
+  const form = $('#reqform'), smsLink = $('#sms-link'), copyBtn = $('#copy-req');
+  const d = new Date(); form.date.min = new Date(d - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  let lastBody = '';
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = form.name.value.trim(), phone = form.phone.value.trim();
+    if (!name || !phone) { (name ? form.phone : form.name).focus(); form.reportValidity(); return; }
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const body = [
+      `Name: ${name}`, `Phone: ${phone}`, `Email: ${form.email.value.trim()}`,
+      `Move date: ${form.date.value || 'Not set yet'}`, `Plan: ${form.plan.value}`,
+      `Delivery ZIP or town: ${form.zip.value.trim()}`, '', form.notes.value.trim()
+    ].join('\n');
+    lastBody = 'Packwise bin request\n' + body.trim();
+    smsLink.href = 'sms:+14124448833?&body=' + encodeURIComponent(lastBody);
+    copyBtn.textContent = 'Copy my request';
+    location.href = 'mailto:miranda@packwisebins.com?subject=' + encodeURIComponent('Bin request from ' + name) + '&body=' + encodeURIComponent(body);
+    form.classList.add('done');
+    $('.sent').scrollIntoView({ block: 'nearest', behavior: RM.matches ? 'auto' : 'smooth' });
+  });
+  copyBtn.addEventListener('click', async () => {
+    let ok = false;
+    try { await navigator.clipboard.writeText(lastBody); ok = true; }
+    catch (err) {
+      const ta = document.createElement('textarea'); ta.value = lastBody; ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      try { ok = document.execCommand('copy'); } catch (e2) {}
+      document.body.removeChild(ta);
+    }
+    copyBtn.textContent = ok ? 'Copied. Paste it in a text or email.' : 'Copy failed. Please call instead.';
+  });
+})();
+</script>
+</body>
+</html>
