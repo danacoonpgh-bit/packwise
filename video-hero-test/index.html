@@ -159,9 +159,8 @@ html.vh-on .static-hero,html.vh-on .hero{display:none!important}
 .vline.on{opacity:1;transform:none}
 .vline .kick{display:block;margin-bottom:14px;color:var(--text-secondary);font-family:var(--mono);font-weight:500;font-size:.78rem;line-height:1.2}
 .vline .em{color:var(--kraft)}
-.vsub{margin-top:16px;font-size:1.06rem;line-height:1.5;max-width:32ch;opacity:0;transition:opacity .6s var(--ease-out) .2s}
-.vhero.end .vsub,.vhero.still .vsub{opacity:1}
-.vhero.dip .vline,.vhero.dip .vsub{opacity:0;transition-delay:0s}
+.vsub{margin-top:16px;font-size:1.06rem;line-height:1.5;max-width:32ch}
+.vhero.dip .vline{opacity:0}
 .vcopy .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .vcopy .btn{text-shadow:none}
 .vtoggle{position:absolute;right:20px;bottom:20px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);background:rgba(20,21,18,.55);color:var(--text-primary);display:grid;place-items:center;cursor:pointer;opacity:.75;transition:opacity .3s}
@@ -648,8 +647,8 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   const vhero = $('#vhero'), hvid = $('#hvid'), vtoggle = $('.vtoggle'), vlines = $$('.vline');
   const SAVE_DATA = !!(navigator.connection && navigator.connection.saveData);
   const PORTRAIT = matchMedia('(max-width: 720px), (orientation: portrait) and (max-width: 1024px), (orientation: portrait) and (pointer: coarse)');
-  const CUES = [[0, 2.3], [2.45, 4.3], [4.45, 1e9]];
-  const HOLD = 3500;
+  const CUES = [[0, 0.95], [0.95, 3.15], [3.15, 1e9]];
+  const PRELUDE = 1400, HOLD = 3500;
   let vSrc = '', holdT = 0, rafV = 0, inView = true, still = false, userPaused = false, lineOn = -2;
   document.documentElement.classList.add('vh-on');
 
@@ -678,11 +677,15 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     const p = hvid.play();
     if (p) p.catch(err => { if (err && err.name === 'NotAllowedError') goStill(); });
   }
+  function playSoon(ms) { clearTimeout(holdT); holdT = setTimeout(play, ms); }
   function restart() {
-    vhero.classList.add('dip');
-    holdT = setTimeout(() => { hvid.currentTime = 0; vhero.classList.remove('dip'); showLine(0); play(); }, 450);
+    clearTimeout(holdT); vhero.classList.add('dip');
+    holdT = setTimeout(() => { hvid.currentTime = 0; vhero.classList.remove('dip'); showLine(0); playSoon(PRELUDE); }, 450);
   }
-  function resume() { clearTimeout(holdT); if (!canPlay()) return; if (hvid.ended) restart(); else play(); }
+  function resume() {
+    clearTimeout(holdT); if (!canPlay()) return;
+    if (hvid.ended) restart(); else if (hvid.currentTime < 0.05) { showLine(0); playSoon(PRELUDE); } else play();
+  }
   function stop() { clearTimeout(holdT); vhero.classList.remove('dip'); if (!hvid.paused) hvid.pause(); }
   function startVideo() {
     if (RM.matches || SAVE_DATA) { goStill(); return; }
