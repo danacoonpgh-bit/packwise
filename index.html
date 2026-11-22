@@ -15,7 +15,8 @@
 <meta property="og:url" content="">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "LocalBusiness", "name": "Packwise", "slogan": "Skip the Cardboard. Pack Wiser.", "description": "Clean, sanitized, reusable moving bins delivered to your door in Greater Pittsburgh and picked up when you're done.", "telephone": "+1-412-444-8833", "email": "miranda@packwisebins.com", "areaServed": "Greater Pittsburgh", "priceRange": "$79-$259", "sameAs": ["https://www.instagram.com/packwisebins/", "https://www.facebook.com/packwisebins"], "makesOffer": [{"@type": "Offer", "name": "10 moving bins, delivery and pickup included", "price": "79", "priceCurrency": "USD"}, {"@type": "Offer", "name": "20 moving bins, delivery and pickup included", "price": "119", "priceCurrency": "USD"}, {"@type": "Offer", "name": "40 moving bins, delivery and pickup included", "price": "199", "priceCurrency": "USD"}, {"@type": "Offer", "name": "60 moving bins, delivery and pickup included", "price": "259", "priceCurrency": "USD"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are the bins actually clean?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every bin is cleaned and sanitized after every rental, so nothing from the last move comes along on yours."}}, {"@type": "Question", "name": "How long can I keep them?", "acceptedAnswer": {"@type": "Answer", "text": "Up to 3 weeks. If your closing date moves or you need more time, ask. Packwise can help there too."}}, {"@type": "Question", "name": "Do delivery and pickup cost extra?", "acceptedAnswer": {"@type": "Answer", "text": "No. Delivery and pickup are included in every plan."}}, {"@type": "Question", "name": "How many bins do I need?", "acceptedAnswer": {"@type": "Answer", "text": "10 bins for a studio, dorm or remodeling project. 20 for 1 to 2 bedrooms. 40 for 2 to 3 bedrooms. 60 for 4+ bedrooms, bigger moves and commercial moves. Short a few? Extra bins are one ask away."}}, {"@type": "Question", "name": "Can I get packing paper, bubble wrap or tape?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Paper, bubble wrap, tape and mattress covers are available as add-ons. Mention what you need when you request your bins."}}, {"@type": "Question", "name": "Where do you deliver?", "acceptedAnswer": {"@type": "Answer", "text": "Packwise serves Greater Pittsburgh. Not sure if your address is covered? Call 412-444-8833 and ask."}}, {"@type": "Question", "name": "Will they hold up in the rain?", "acceptedAnswer": {"@type": "Answer", "text": "They're sturdy, stackable and water-resistant. A soggy driveway won't turn them to mush the way it does cardboard."}}]}]}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1d1a'/%3E%3Crect x='12' y='22' width='40' height='8' rx='2' fill='%239aab45'/%3E%3Cpath d='M15 30h34l-3 22H18z' fill='%23eeede4'/%3E%3C/svg%3E">
-<link rel="preload" as="image" type="image/webp" href="assets/seq/f00.webp" media="(max-width: 720px), (orientation: portrait) and (pointer: coarse)">
+<link rel="preload" as="image" type="image/webp" href="assets/vhero/phone-start.webp" media="(max-width: 720px), (orientation: portrait) and (max-width: 1024px), (orientation: portrait) and (pointer: coarse)">
+<link rel="preload" as="image" type="image/webp" href="assets/vhero/desktop-start.webp" media="(min-width: 721px) and (orientation: landscape)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -140,6 +141,43 @@ html.seq-on .stage video,html.seq-on .stage .poster{display:none}
 html.seq-on .stage.port .band{left:16px;right:16px;top:auto;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:none;max-width:none;text-align:left}
 html.seq-on .stage.port .band.right{text-align:right}
 html.seq-on .stage.port .band .sub{max-width:34ch}
+
+/* video hero (JS adds html.vh-on) */
+.vhero{display:none;position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:#141512}
+html.vh-on .vhero{display:block}
+html.vh-on .static-hero,html.vh-on .hero{display:none!important}
+.vframe{position:absolute;inset:0;background:#141512 url('assets/vhero/desktop-start.webp') center/cover no-repeat}
+.vframe video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s var(--ease-out)}
+.vhero.playing .vframe video{opacity:1}
+.vhero.dip .vframe video{opacity:0}
+.vhero.still .vframe{background-image:url('assets/vhero/desktop-end.webp')}
+.vhero.still .vframe video,.vhero.still .vtoggle{display:none}
+.vshade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(10,11,8,.8) 0%,rgba(10,11,8,.5) 28%,rgba(10,11,8,0) 52%),radial-gradient(ellipse 120% 90% at 50% 45%,rgba(10,11,8,0) 40%,rgba(10,11,8,.55) 100%)}
+.vcopy{position:absolute;left:clamp(24px,5vw,80px);top:50%;transform:translateY(-50%);max-width:min(420px,26vw);text-shadow:var(--tshadow)}
+.vlines{display:grid}
+.vline{grid-area:1/1;align-self:end;font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.95;letter-spacing:.005em;font-size:clamp(2.4rem,4.2vw,4.6rem);opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease-out),transform .6s var(--ease-out)}
+.vline.on{opacity:1;transform:none}
+.vline .kick{display:block;margin-bottom:14px;color:var(--text-secondary);font-family:var(--mono);font-weight:500;font-size:.78rem;line-height:1.2}
+.vline .em{color:var(--kraft)}
+.vsub{margin-top:16px;font-size:1.06rem;line-height:1.5;max-width:32ch}
+.vhero.dip .vline{opacity:0}
+.vcopy .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.vcopy .btn{text-shadow:none}
+.vtoggle{position:absolute;right:20px;bottom:20px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);background:rgba(20,21,18,.55);color:var(--text-primary);display:grid;place-items:center;cursor:pointer;opacity:.75;transition:opacity .3s}
+.vtoggle:hover,.vtoggle:focus-visible{opacity:1}
+.vtoggle svg{width:14px;height:14px}
+.vtoggle .i-play,.vhero.paused .vtoggle .i-pause{display:none}
+.vhero.paused .vtoggle .i-play{display:block}
+@media (max-width: 720px),(orientation: portrait) and (max-width: 1024px),(orientation: portrait) and (pointer: coarse){
+  .vhero{min-height:600px}
+  .vframe{inset:auto;top:44px;left:50%;width:min(100vw,calc(100svh - 340px));aspect-ratio:1/1;transform:translateX(-50%);background-image:url('assets/vhero/phone-start.webp')}
+  .vhero.still .vframe{background-image:url('assets/vhero/phone-end.webp')}
+  .vframe::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(20,21,18,.5) 0%,rgba(20,21,18,0) 16%,rgba(20,21,18,0) 66%,#141512 100%),linear-gradient(90deg,#141512 0%,rgba(20,21,18,0) 6%,rgba(20,21,18,0) 94%,#141512 100%)}
+  .vshade{display:none}
+  .vcopy{left:16px;right:16px;top:auto;bottom:calc(32px + env(safe-area-inset-bottom,0px));transform:none;max-width:none}
+  .vline{font-size:clamp(2.3rem,10.5vw,3.6rem)}
+  .vtoggle{right:12px;bottom:16px;width:36px;height:36px;z-index:1}
+}
 
 .static-hero .inner{position:relative;max-width:560px;text-shadow:var(--tshadow)}
 .static-hero h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(3rem,13vw,5.2rem);line-height:.92}
@@ -328,39 +366,28 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 </nav>
 
 <header id="top">
-  <!-- Scroll hero (video on laptops and desktops, image frames on phones) -->
-  <div class="hero" id="hero">
+  <!-- Video hero: plays once, holds on the bin, then replays -->
+  <div class="vhero" id="vhero">
     <h1 class="vh">Skip the cardboard. Pack wiser. Clean moving bins delivered in Greater Pittsburgh.</h1>
-    <div class="stage" id="stage">
-      <div class="poster" aria-hidden="true"></div>
-      <video id="vid" preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
-      <div class="scrim" aria-hidden="true"></div>
-
-      <div class="band left b1" data-a="0" data-b="0.2" style="--sa:.62">
-        <span class="kick mono">Exhibit A</span>
-        <h2><span class="vh">That box has been in somebody's basement.</span>
-          <span class="stack" aria-hidden="true"><span class="soft">That box has been in somebody's basement.</span><span class="sharp">That box has been in somebody's basement.</span></span></h2>
+    <div class="vframe">
+      <video id="hvid" muted playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+      <button class="vtoggle" type="button" aria-label="Pause video">
+        <svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
+        <svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9.5-5.5z" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <div class="vshade" aria-hidden="true"></div>
+    <div class="vcopy">
+      <div class="vlines" aria-hidden="true">
+        <p class="vline"><span class="kick">Exhibit A</span>That box has been in somebody's basement.</p>
+        <p class="vline">Damp. Moldy. <span class="em">Occupied.</span></p>
+        <p class="vline">Skip the cardboard. <span class="wise">Pack wiser.</span></p>
       </div>
-
-      <div class="band right b2" data-a="0.23" data-b="0.47" style="--sa:.7">
-        <p class="big split" data-em="2">Damp. Moldy. Occupied.</p>
+      <p class="vsub">Clean, sanitized moving bins delivered to your door. When you're moved in, we pick them up.</p>
+      <div class="row">
+        <a class="btn btn-primary" href="#request">Request your bins</a>
+        <a class="btn btn-ghost" href="#pricing">See pricing</a>
       </div>
-
-      <div class="band left b3" data-a="0.5" data-b="0.71" style="--sa:.68">
-        <h2 class="split">Skip the cardboard.</h2>
-      </div>
-
-      <div class="band left b4" data-a="0.75" data-b="1" style="--sa:.72">
-        <h2 class="split">Pack <span class="wise">wiser.</span></h2>
-        <p class="sub">Clean, sanitized moving bins delivered to your door. When you're moved in, we pick them up.</p>
-        <div class="row">
-          <a class="btn btn-primary" href="#request">Request your bins</a>
-          <a class="btn btn-ghost" href="#pricing">See pricing</a>
-        </div>
-      </div>
-
-      <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-opacity=".2" stroke-width="3"/><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/></svg>
-      <div class="cue mono" aria-hidden="true">Scroll<span></span></div>
     </div>
   </div>
 
@@ -616,250 +643,69 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     el.textContent = ''; el.append(sr, vis);
   });
 
-  /* ---------- scrub hero ---------- */
-  const GATES = [
-    '(max-width: 720px)',
-    '(orientation: portrait) and (max-width: 1024px)',
-    '(orientation: portrait) and (pointer: coarse)',
-    '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)',
-    '(prefers-reduced-motion: reduce)'
-  ];
-  const hero = $('#hero'), stage = $('#stage'), video = $('#vid'), ring = $('.ring'), cue = $('.cue'), posterLayer = $('.poster');
-  const VIDEO_URL = 'assets/hero-scrub.mp4', POSTER = 'assets/hero-poster.jpg';
-  const VIDEO_BYTES = 5399780;
-  const bands = $$('.band').map(el => ({ el, a: +el.dataset.a, b: +el.dataset.b, ramp: el.dataset.ramp ? +el.dataset.ramp : 0, op: -1, k: -1, live: null }));
-  const smooth = (p, e0, e1) => { const t = Math.min(1, Math.max(0, (p - e0) / (e1 - e0))); return t * t * (3 - 2 * t); };
-  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
-
-  let target = 0, shown = 0, rafId = null, lastTick = 0, heroOn = true, scrubOn = false, inited = false;
-  let loadK = 0, loadStart = 0, cueShown = true;
-
-  function heroProgress() {
-    const r = hero.getBoundingClientRect();
-    const range = hero.offsetHeight - innerHeight;
-    return range > 0 ? clamp(-r.top / range, 0, 1) : 0;
-  }
-
-  let seekBusy = false, pendingTime = null;
-  function requestSeek(t) {
-    if (!video.duration || !isFinite(video.duration)) return;
-    t = Math.min(t, video.duration - 0.04);
-    if (seekBusy) { pendingTime = t; return; }
-    if (Math.abs(video.currentTime - t) < 0.008) return;
-    seekBusy = true; video.currentTime = t;
-  }
-  video.addEventListener('seeked', () => {
-    seekBusy = false;
-    if (pendingTime !== null) { const t = pendingTime; pendingTime = null; requestSeek(t); }
-  });
-  video.addEventListener('error', () => { seekBusy = false; pendingTime = null; failVideo(); });
-
-  function updateCaptions(p) {
-    bands.forEach((B, i) => {
-      const { a, b } = B, f = Math.min(0.02, (b - a) / 3);
-      let op = (i === 0 ? 1 : smooth(p, a, a + f)) * (i === bands.length - 1 ? 1 : 1 - smooth(p, b - f, b));
-      if (p < a - 0.0001 && i !== 0) op = 0;
-      let k = clamp((p - a) / (B.ramp || Math.min(0.025, (b - a) * 0.35)), 0, 1);
-      if (i === 0) k = Math.max(k, loadK);
-      op = Math.round(op * 1000) / 1000;
-      if (Math.abs(op - B.op) > 0.004) { B.op = op; B.el.style.opacity = op; }
-      if (Math.abs(k - B.k) > 0.008 || (k === 1 && B.k !== 1) || (k === 0 && B.k !== 0)) { B.k = k; B.el.style.setProperty('--k', k.toFixed(3)); }
-      const live = op > 0.5;
-      if (live !== B.live) { B.live = live; B.el.classList.toggle('live', live); B.el.inert = !live; }
-    });
-    const showCue = p < 0.04;
-    if (showCue !== cueShown) { cueShown = showCue; cue.style.opacity = showCue ? 1 : 0; }
-  }
-
-  function tick(now) {
-    const dt = Math.min(100, now - (lastTick || now)); lastTick = now;
-    if (loadK < 1) { loadK = Math.min(1, (now - loadStart) / 1400); loadK = 1 - Math.pow(1 - loadK, 3); }
-    const k = 0.16;
-    shown += (target - shown) * (1 - Math.pow(1 - k, dt / 16.667));
-    const settled = Math.abs(target - shown) < 0.0005;
-    if (settled) shown = target;
-    if (seqOn) seqDraw(); else requestSeek(shown * (video.duration || 0));
-    updateCaptions(shown);
-    if (settled && loadK >= 1) { rafId = null; lastTick = 0; }
-    else rafId = requestAnimationFrame(tick);
-  }
-  function onScroll() {
-    target = heroProgress();
-    if (rafId === null && heroOn && scrubOn) rafId = requestAnimationFrame(tick);
-  }
-  new IntersectionObserver(es => { heroOn = es[0].isIntersecting; if (heroOn) onScroll(); }).observe(hero);
-
-  let started = false;
-  function initHeroOnce() {
-    if (inited) return; inited = true;
-    loadStart = performance.now();
-    posterLayer.style.backgroundImage = `url('${POSTER}')`;
-    const img = new Image();
-    img.onload = img.onerror = startBlobFetch;
-    img.src = POSTER;
-    setTimeout(startBlobFetch, 4000);
-  }
-  function startBlobFetch() { if (started) return; started = true; loadHeroBlob().catch(failVideo); }
-  async function loadHeroBlob() {
-    const ctrl = new AbortController();
-    let watchdog = setTimeout(() => ctrl.abort(), 20000);
-    const res = await fetch(VIDEO_URL, { priority: 'low', signal: ctrl.signal });
-    if (!res.ok) throw new Error('video ' + res.status);
-    const total = Number(res.headers.get('Content-Length')) || VIDEO_BYTES;
-    const reader = res.body.getReader(); const chunks = []; let got = 0, lastRing = 0;
-    for (;;) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      clearTimeout(watchdog); watchdog = setTimeout(() => ctrl.abort(), 20000);
-      chunks.push(value); got += value.length;
-      const frac = Math.min(1, got / total), now = performance.now();
-      if (now - lastRing > 100 || frac === 1) { lastRing = now; ring.style.setProperty('--ld', Math.round(126 * (1 - frac))); }
-    }
-    clearTimeout(watchdog);
-    ring.style.setProperty('--ld', 0);
-    video.src = URL.createObjectURL(new Blob(chunks, { type: 'video/mp4' }));
-    video.load();
-    video.addEventListener('loadeddata', () => {
-      requestSeek(heroProgress() * video.duration);
-      stage.classList.add('video-ready');
-    }, { once: true });
-  }
-  function failVideo() { stage.classList.add('video-failed'); ring.style.opacity = 0; }
-
-  /* ---------- phone scroll hero: image sequence on a canvas ----------
-     Phones can't scrub a video smoothly (iOS Safari lags on currentTime seeks),
-     so phones scrub through 73 pre-cut WebP frames instead, cross-fading
-     between neighbours so it stays smooth. */
-  const PHONE_GATES = GATES.slice(0, 4);
-  const SEQ_N = 73, seqUrl = i => `assets/seq/f${String(i).padStart(2, '0')}.webp`;
+  /* ---------- video hero ---------- */
+  const vhero = $('#vhero'), hvid = $('#hvid'), vtoggle = $('.vtoggle'), vlines = $$('.vline');
   const SAVE_DATA = !!(navigator.connection && navigator.connection.saveData);
-  const frames = new Array(SEQ_N).fill(null);
-  let seqOn = false, seqInited = false, seqFailed = false;
-  let canvas = null, ctx = null, cw = 0, ch = 0, dpr = 1, port = true, drawnKey = '';
+  const PORTRAIT = matchMedia('(max-width: 720px), (orientation: portrait) and (max-width: 1024px), (orientation: portrait) and (pointer: coarse)');
+  const CUES = [[0, 0.95], [0.95, 3.15], [3.15, 1e9]];
+  const PRELUDE = 1400, HOLD = 3500;
+  let vSrc = '', holdT = 0, rafV = 0, inView = true, still = false, userPaused = false, lineOn = -2;
+  document.documentElement.classList.add('vh-on');
 
-  function seqLoad(i) {
-    return new Promise(res => {
-      const img = new Image();
-      img.decoding = 'async';
-      img.onload = () => {
-        const ready = img.decode ? img.decode().catch(() => {}) : Promise.resolve();
-        ready.then(() => { frames[i] = img; res(true); });
-      };
-      img.onerror = () => res(false);
-      img.src = seqUrl(i);
-    });
+  function pickSrc() {
+    if (PORTRAIT.matches) return 'assets/vhero/phone.mp4';
+    return innerWidth * Math.min(devicePixelRatio || 1, 2) > 1400 ? 'assets/vhero/desktop.mp4' : 'assets/vhero/desktop-1280.mp4';
   }
-  function seqOrder() {
-    const seen = new Set([0, SEQ_N - 1]), out = [0, SEQ_N - 1];
-    [24, 12, 6, 3, 1].forEach(step => { for (let i = 0; i < SEQ_N; i += step) if (!seen.has(i)) { seen.add(i); out.push(i); } });
-    return out;
+  function showLine(i) {
+    if (i === lineOn) return; lineOn = i;
+    vlines.forEach((l, n) => l.classList.toggle('on', n === i));
+    vhero.classList.toggle('end', i === 2);
   }
-  async function seqInit() {
-    if (seqInited) return; seqInited = true;
-    loadStart = performance.now();
-    canvas = document.createElement('canvas');
-    canvas.setAttribute('aria-hidden', 'true');
-    stage.insertBefore(canvas, stage.querySelector('.scrim'));
-    ctx = canvas.getContext('2d');
-    seqResize();
-    const order = seqOrder();
-    let next = 1, done = 1;
-    if (!(await seqLoad(order[0]))) { seqFail(); return; }
-    seqDraw(true);
-    const worker = async () => {
-      while (next < order.length) {
-        await seqLoad(order[next++]);
-        done++;
-        ring.style.setProperty('--ld', Math.round(126 * (1 - done / SEQ_N)));
-        seqDraw(true);
-      }
-    };
-    await Promise.all([worker(), worker(), worker(), worker()]);
-    stage.classList.add('seq-ready');
+  function syncCaptions() {
+    const t = hvid.currentTime;
+    showLine(CUES.findIndex(([a, b]) => t >= a && t < b));
+    if (!hvid.paused && !hvid.ended) rafV = requestAnimationFrame(syncCaptions);
   }
-  function seqFail() { seqFailed = true; applyHeroMode(); }
-  function seqResize() {
-    if (!canvas || !seqOn) return;
-    dpr = Math.min(2, devicePixelRatio || 1);
-    const w = stage.clientWidth, h = stage.clientHeight;
-    if (!w || !h || (w === cw && h === ch && canvas.width === Math.round(w * dpr))) return;
-    cw = w; ch = h;
-    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-    port = h >= w;
-    stage.classList.toggle('port', port);
-    seqDraw(true);
+  function goStill() {
+    still = true; clearTimeout(holdT); cancelAnimationFrame(rafV);
+    if (hvid.getAttribute('src')) { hvid.pause(); hvid.removeAttribute('src'); hvid.load(); }
+    vSrc = ''; vhero.classList.remove('playing', 'dip', 'paused'); vhero.classList.add('still'); showLine(2);
   }
-  function nearestFrame(i, dir) {
-    for (let j = i; j >= 0 && j < SEQ_N; j += dir) if (frames[j]) return j;
-    return -1;
+  function canPlay() { return !still && !userPaused && inView && !document.hidden; }
+  function play() {
+    if (!canPlay()) return;
+    const p = hvid.play();
+    if (p) p.catch(err => { if (err && err.name === 'NotAllowedError') goStill(); });
   }
-  function vfade(x, y, w, h, a0, a1) {
-    const g = ctx.createLinearGradient(0, y, 0, y + h);
-    g.addColorStop(0, `rgba(20,21,18,${a0})`); g.addColorStop(1, `rgba(20,21,18,${a1})`);
-    ctx.fillStyle = g; ctx.fillRect(x, y, w, h);
+  function playSoon(ms) { clearTimeout(holdT); holdT = setTimeout(play, ms); }
+  function restart() {
+    clearTimeout(holdT); vhero.classList.add('dip');
+    holdT = setTimeout(() => { hvid.currentTime = 0; vhero.classList.remove('dip'); showLine(0); playSoon(PRELUDE); }, 450);
   }
-  function hfade(x, y, w, h, a0, a1) {
-    const g = ctx.createLinearGradient(x, 0, x + w, 0);
-    g.addColorStop(0, `rgba(20,21,18,${a0})`); g.addColorStop(1, `rgba(20,21,18,${a1})`);
-    ctx.fillStyle = g; ctx.fillRect(x, y, w, h);
+  function resume() {
+    clearTimeout(holdT); if (!canPlay()) return;
+    if (hvid.ended) restart(); else if (hvid.currentTime < 0.05) { showLine(0); playSoon(PRELUDE); } else play();
   }
-  function seqDraw(force) {
-    if (!ctx || !frames[0] || !canvas.width) return;
-    const f = clamp(shown, 0, 1) * (SEQ_N - 1);
-    let a = nearestFrame(Math.floor(f), -1), b = nearestFrame(Math.ceil(f), 1);
-    if (a < 0) a = b; if (b < 0) b = a;
-    const t = b > a ? (f - a) / (b - a) : 0;
-    const key = `${a}|${b}|${Math.round(t * 40)}|${canvas.width}x${canvas.height}`;
-    if (!force && key === drawnKey) return;
-    drawnKey = key;
-    const W = canvas.width, H = canvas.height;
-    let s, x, y;
-    if (port) { s = Math.min(W / 0.86, H * 0.62); x = (W - s) / 2; y = Math.min(60 * dpr, H - s); }
-    else { s = Math.min(H, W * 0.62); x = (W - s) / 2; y = (H - s) / 2; }
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = '#141512'; ctx.fillRect(0, 0, W, H);
-    ctx.drawImage(frames[a], x, y, s, s);
-    if (b !== a && t > 0.02) { ctx.globalAlpha = t; ctx.drawImage(frames[b], x, y, s, s); ctx.globalAlpha = 1; }
-    vfade(x - 1, y - 1, s + 2, s * 0.16, 0.6, 0);
-    vfade(x - 1, y + s * 0.6, s + 2, s * 0.4 + 2, 0, 1);
-    if (x > 0) { hfade(x - 1, y - 1, s * 0.16, s + 2, 1, 0); hfade(x + s * 0.84 + 1, y - 1, s * 0.16, s + 2, 0, 1); }
+  function stop() { clearTimeout(holdT); vhero.classList.remove('dip'); if (!hvid.paused) hvid.pause(); }
+  function startVideo() {
+    if (RM.matches || SAVE_DATA) { goStill(); return; }
+    still = false; vhero.classList.remove('still');
+    const src = pickSrc();
+    if (src !== vSrc) { vSrc = src; vhero.classList.remove('playing'); showLine(0); hvid.src = src; }
+    resume();
   }
-  function enableSeq() {
-    if (seqOn) return; seqOn = true;
-    document.documentElement.classList.add('seq-on');
-    addEventListener('resize', seqResize, { passive: true });
-    seqResize();
-  }
-  function disableSeq() {
-    if (!seqOn) return; seqOn = false;
-    document.documentElement.classList.remove('seq-on');
-    removeEventListener('resize', seqResize);
-  }
-
-  function enableScrub() {
-    if (scrubOn) return; scrubOn = true;
-    if (seqOn) seqInit(); else initHeroOnce();
-    addEventListener('scroll', onScroll, { passive: true });
-    addEventListener('resize', onScroll, { passive: true });
-    bands.forEach(B => { B.op = -1; B.k = -1; B.live = null; });
-    unpinFinalStates();
-    target = shown = heroProgress();
-    updateCaptions(shown);
-    rafId = null; onScroll();
-  }
-  function disableScrub() {
-    if (!scrubOn) return; scrubOn = false;
-    removeEventListener('scroll', onScroll); removeEventListener('resize', onScroll);
-    if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
-  }
-  function applyHeroMode() {
-    const phone = PHONE_GATES.some(q => matchMedia(q).matches);
-    if (RM.matches || (phone && (SAVE_DATA || seqFailed))) { disableScrub(); disableSeq(); return; }
-    if (phone !== seqOn) { disableScrub(); if (phone) enableSeq(); else disableSeq(); }
-    enableScrub();
-  }
-  const MQLS = GATES.map(q => matchMedia(q));
-  MQLS.forEach(m => m.addEventListener('change', applyHeroMode));
+  hvid.addEventListener('playing', () => { vhero.classList.add('playing'); cancelAnimationFrame(rafV); syncCaptions(); });
+  hvid.addEventListener('ended', () => { showLine(2); if (canPlay()) holdT = setTimeout(restart, HOLD); });
+  hvid.addEventListener('error', () => { if (hvid.getAttribute('src')) goStill(); });
+  vtoggle.addEventListener('click', () => {
+    userPaused = !userPaused;
+    vhero.classList.toggle('paused', userPaused);
+    vtoggle.setAttribute('aria-label', userPaused ? 'Play video' : 'Pause video');
+    if (userPaused) stop(); else resume();
+  });
+  new IntersectionObserver(es => es.forEach(e => { inView = e.isIntersecting; if (inView) resume(); else stop(); }), { threshold: 0.15 }).observe(vhero);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else resume(); });
+  PORTRAIT.addEventListener('change', () => { if (!still) startVideo(); });
 
   /* ---------- plan picker (the interactive moment) ---------- */
   const opts = $$('.opt'), totes = $$('.tote'), tiers = $$('.tier'), result = $('.result'), plan = $('#f-plan');
@@ -893,16 +739,16 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   }));
 
   function pinToFinalStates() {
-    disableScrub(); disableSeq();
+    goStill();
     $$('.io').forEach(el => el.classList.add('in', 'done'));
     stagger.forEach(clearTimeout);
     const pressed = opts.find(o => o.getAttribute('aria-pressed') === 'true');
     if (pressed) totes.forEach((el, i) => el.classList.toggle('on', i < LAYERS[+pressed.dataset.tier]));
   }
   function unpinFinalStates() { /* entrances are one-way; scrub state is recomputed by enableScrub */ }
-  RM.addEventListener('change', e => { if (e.matches) pinToFinalStates(); else applyHeroMode(); });
+  RM.addEventListener('change', e => { if (e.matches) pinToFinalStates(); else startVideo(); });
   if (RM.matches) pinToFinalStates();
-  applyHeroMode();
+  startVideo();
 
   /* ---------- request form (mailto) ---------- */
   const form = $('#reqform'), smsLink = $('#sms-link'), copyBtn = $('#copy-req');
